@@ -1,0 +1,310 @@
+/*
+ * GlowWithin® — global stylesheet.
+ *
+ * Cascade layers, lowest priority first:
+ *   wp         the WordPress / BeTheme stylesheets copied verbatim from the live
+ *              site (header + footer builder templates, theme options, icon
+ *              fonts). Identical markup + identical CSS = identical header and
+ *              footer at every breakpoint, by construction.
+ *   theme      Tailwind theme tokens
+ *   gw         our own page-content styles (sections, buttons, cards)
+ *   utilities  Tailwind utilities (no preflight — BeTheme owns the element
+ *              defaults, which is exactly what "overall CSS the same" means)
+ */
+@layer wp, theme, gw, utilities;
+/* The WordPress stylesheets are imported in src/app/layout.tsx, each wrapped in `@layer wp { … }`. */
+
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --color-ink: #34252f;        /* body text / headings (BeTheme "color-custom") */
+  --color-muted: #5b5957;      /* footer text */
+  --color-peach: #fdb37e;      /* links, prices, accents */
+  --color-blush: #fdc5b8;      /* Elementor kit accent */
+  --color-sand: #edb787;       /* Elementor kit primary */
+  --color-bronze: #be926c;     /* gradient start */
+  --color-cocoa: #473729;      /* buttons (Elementor kit secondary) */
+  --color-mocha: #8e6e51;
+  --color-wine: #b23a48;       /* hover */
+  --color-cream: #f8f4f3;      /* soft panels / mobile drawer */
+  --color-shell: #fdf6f2;
+  --font-serif: "Suranna", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --breakpoint-tablet: 768px;   /* BeTheme mobile header boundary */
+  --breakpoint-laptop: 960px;   /* BeTheme tablet boundary */
+  --breakpoint-desktop: 1240px;
+}
+
+@layer gw {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 96px;
+  }
+  body {
+    background: #fff;
+    overflow-x: hidden;
+  }
+  /* BeTheme leaves page content in content-box sizing (`*{box-sizing:inherit}`
+     off an html that never sets it). Our page sections are built border-box;
+     the header and footer stay exactly as the theme computes them. */
+  #Content, #Content *, #Content *::before, #Content *::after { box-sizing: border-box; }
+  /* Elementor's lazy-load rule (copied from the live page) is not needed here. */
+
+  /* ---------- layout ---------- */
+  .gw-container {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  @media (min-width: 768px) {
+    .gw-container { padding-inline: 40px; }
+  }
+  .gw-section { padding-block: 60px; }
+  @media (min-width: 960px) {
+    .gw-section { padding-block: 90px; }
+  }
+  .gw-section--tight { padding-block: 40px; }
+  @media (min-width: 960px) {
+    .gw-section--tight { padding-block: 60px; }
+  }
+
+  /* ---------- type ---------- */
+  .gw-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-mocha);
+    margin: 0 0 14px;
+  }
+  .gw-h1, .gw-h2, .gw-h3, .gw-h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-ink);
+    margin: 0;
+  }
+  .gw-h1 { font-size: clamp(40px, 6vw, 64px); line-height: 1.08; letter-spacing: -1px; }
+  .gw-h2 { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.1; letter-spacing: -1px; }
+  .gw-h3 { font-size: clamp(26px, 3vw, 36px); line-height: 1.15; }
+  .gw-h4 { font-size: 25px; line-height: 1.2; }
+  .gw-lead {
+    font-size: 18px;
+    line-height: 30px;
+    color: var(--color-ink);
+  }
+  .gw-prose p { margin: 0 0 18px; }
+  .gw-prose p:last-child { margin-bottom: 0; }
+  .gw-prose a { color: var(--color-wine); }
+  .gw-gradient-text {
+    background: linear-gradient(90deg, var(--color-bronze), var(--color-blush));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .gw-rule {
+    width: 64px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-bronze), var(--color-blush));
+    border: 0;
+    margin: 22px 0;
+  }
+  .gw-rule--center { margin-inline: auto; }
+
+  /* ---------- buttons (Elementor kit button, ported) ---------- */
+  .gw-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    border-radius: 0;
+    border: 1px solid var(--color-cocoa);
+    background: var(--color-cocoa);
+    color: #fff !important;
+    text-decoration: none !important;
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+    cursor: pointer;
+  }
+  .gw-btn:hover { background: var(--color-wine); border-color: var(--color-wine); color: #fff !important; }
+  .gw-btn--outline { background: transparent; color: var(--color-cocoa) !important; }
+  .gw-btn--outline:hover { background: var(--color-cocoa); color: #fff !important; }
+  .gw-btn--peach { background: var(--color-peach); border-color: var(--color-peach); color: var(--color-ink) !important; }
+  .gw-btn--peach:hover { background: var(--color-cocoa); border-color: var(--color-cocoa); color: #fff !important; }
+  .gw-btn--light { background: #fff; border-color: #fff; color: var(--color-ink) !important; }
+  .gw-btn--light:hover { background: var(--color-ink); border-color: var(--color-ink); color: #fff !important; }
+  .gw-btn:disabled { opacity: .6; cursor: not-allowed; }
+  .gw-link {
+    font-weight: 600;
+    color: var(--color-ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-peach);
+    transition: color .2s ease;
+  }
+  .gw-link:hover { color: var(--color-wine); }
+
+  /* ---------- cards ---------- */
+  .gw-card {
+    background: #fff;
+    border: 1px solid rgba(52, 37, 47, .08);
+    padding: 32px 28px;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .gw-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(52, 37, 47, .35); }
+  .gw-num {
+    font-family: var(--font-serif);
+    font-size: 40px;
+    line-height: 1;
+    color: var(--color-peach);
+  }
+  .gw-chip {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-cocoa);
+    background: var(--color-cream);
+    padding: 8px 14px;
+  }
+  .gw-bullets { list-style: none; margin: 0; padding: 0; }
+  .gw-bullets li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 8px;
+    line-height: 24px;
+  }
+  .gw-bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 9px;
+    width: 8px; height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--color-bronze), var(--color-blush));
+  }
+
+  /* ---------- pack shots: never cropped ---------- */
+  .gw-packshot {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: var(--color-shell);
+    overflow: hidden;
+  }
+  .gw-packshot img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* ---------- hero slider: full banner, never cropped ---------- */
+  .gw-hero { position: relative; background: #fbeee6; }
+  .gw-hero__track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .gw-hero__track::-webkit-scrollbar { display: none; }
+  .gw-hero__slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    display: block;
+    aspect-ratio: 16 / 9;           /* the banners are 2560×1440 — shown whole */
+    position: relative;
+  }
+  .gw-hero__slide img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .gw-hero__dots {
+    position: absolute;
+    left: 0; right: 0; bottom: 14px;
+    display: flex; justify-content: center; gap: 8px;
+    pointer-events: none;
+  }
+  .gw-hero__dot {
+    width: 8px; height: 8px; border-radius: 999px;
+    background: rgba(52, 37, 47, .25);
+    border: 0; padding: 0;
+    pointer-events: auto; cursor: pointer;
+    transition: transform .2s ease, background-color .2s ease;
+  }
+  .gw-hero__dot[aria-current="true"] { background: var(--color-ink); transform: scale(1.25); }
+  .gw-hero__arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 44px; height: 44px; border-radius: 999px;
+    border: 0; background: rgba(255, 255, 255, .7); color: var(--color-ink);
+    display: none; align-items: center; justify-content: center;
+    cursor: pointer; transition: background-color .2s ease;
+  }
+  .gw-hero__arrow:hover { background: #fff; }
+  .gw-hero__arrow--prev { left: 16px; }
+  .gw-hero__arrow--next { right: 16px; }
+  @media (min-width: 768px) {
+    .gw-hero__arrow { display: inline-flex; }
+    .gw-hero__dots { bottom: 22px; }
+    .gw-hero__dot { width: 10px; height: 10px; }
+  }
+
+  /* ---------- page hero band ---------- */
+  .gw-pagehero {
+    background:
+      radial-gradient(1200px 400px at 85% 0%, rgba(253, 197, 184, .45), transparent 60%),
+      radial-gradient(800px 300px at 0% 100%, rgba(237, 183, 135, .35), transparent 60%),
+      var(--color-shell);
+  }
+
+  /* ---------- forms ---------- */
+  .gw-field {
+    width: 100%;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    color: var(--color-ink);
+    background: #fff;
+    border: 1px solid rgba(52, 37, 47, .18);
+    border-radius: 0;
+    padding: 14px 16px;
+    box-shadow: none;
+    transition: border-color .2s ease;
+  }
+  .gw-field:focus { outline: none; border-color: var(--color-bronze); }
+  textarea.gw-field { min-height: 150px; resize: vertical; }
+  .gw-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--color-mocha);
+    margin-bottom: 8px;
+  }
+
+  /* ---------- header / footer link fixes for the apex ---------- */
+  /* The theme's JS toggles a login modal; on this site the icon is a plain link. */
+  .mfn-header-login { display: none !important; }
+  /* Mobile header: the live site used the theme's demo SVG (110×48) here; the
+     real GlowWithin logo is near-square, so cap its height to keep the header
+     at the same 68px. */
+  .gw-mobile-logo img { max-height: 48px; width: auto; }
+  /* Keep the BeTheme side-slide drawer above page content. */
+  .mfn-header-tmpl-menu-sidebar { z-index: 1002; }
+  /* Header is `absolute` on desktop; make sure page content starts below it. */
+  #Wrapper { padding-top: var(--gw-header-h, 175px); }
+  @media (max-width: 767px) {
+    #Wrapper { padding-top: var(--gw-mobile-header-h, 80px); }
+  }
+  /* Elementor-free page: prevent BeTheme content padding rules from applying. */
+  #Content { padding: 0; }
+  .gw-hidden { display: none !important; }
+}
