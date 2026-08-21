@@ -10,11 +10,26 @@
  * cross-origin fetch and nothing to configure on WordPress.
  */
 
-export const APEX_ORIGIN =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ?? "https://glowwithin.co.in";
+/**
+ * Read an origin from an env var, tolerating the ways it arrives broken from a
+ * hosting dashboard: unset, empty string, surrounding whitespace, trailing
+ * slash, or missing scheme. Anything unparseable falls back to the default so
+ * `new URL(origin)` (metadataBase, sitemap, JSON-LD) can never throw at build.
+ */
+function originFromEnv(value: string | undefined, fallback: string): string {
+  const raw = (value ?? "").trim().replace(/\/+$/, "");
+  if (!raw) return fallback;
+  const withScheme = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    return new URL(withScheme).origin;
+  } catch {
+    return fallback;
+  }
+}
 
-export const SHOP_ORIGIN =
-  process.env.NEXT_PUBLIC_SHOP_URL?.replace(/\/$/, "") ?? "https://shop.glowwithin.co.in";
+export const APEX_ORIGIN = originFromEnv(process.env.NEXT_PUBLIC_SITE_URL, "https://glowwithin.co.in");
+
+export const SHOP_ORIGIN = originFromEnv(process.env.NEXT_PUBLIC_SHOP_URL, "https://shop.glowwithin.co.in");
 
 const shop = (path: string) => `${SHOP_ORIGIN}${path.startsWith("/") ? path : `/${path}`}`;
 
