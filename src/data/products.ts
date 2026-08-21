@@ -87,8 +87,8 @@ export const products: Product[] = [
     image: {
       src: "/images/products/nourishing-hair-serum.webp",
       alt: "GlowWithin™ Nourishing Hair Serum — 30 ml dropper bottle with carton",
-      width: 806,
-      height: 1200,
+      width: 1000,
+      height: 1250,
     },
     banner: "/images/banners/banner-1.webp",
     netQty: "30 ml",
@@ -126,8 +126,8 @@ export const products: Product[] = [
     image: {
       src: "/images/products/brightening-face-serum.webp",
       alt: "GlowWithin™ Brightening Face Serum — 30 ml dropper bottle with carton",
-      width: 756,
-      height: 1200,
+      width: 1000,
+      height: 1250,
     },
     banner: "/images/banners/banner-3.webp",
     netQty: "30 ml",
@@ -168,8 +168,8 @@ export const products: Product[] = [
     image: {
       src: "/images/products/gel-based-face-cream.webp",
       alt: "GlowWithin™ Gel Based Face Cream — 100 ml tube with carton",
-      width: 973,
-      height: 1178,
+      width: 1000,
+      height: 1250,
     },
     banner: "/images/banners/banner-2.webp",
     netQty: "100 ml",
@@ -212,8 +212,8 @@ export const products: Product[] = [
     image: {
       src: "/images/products/intimate-wash.webp",
       alt: "GlowWithin™ Gentle Intimate Wash — 100 ml foam pump with carton",
-      width: 806,
-      height: 998,
+      width: 1000,
+      height: 1250,
     },
     banner: "/images/banners/banner-5.webp",
     netQty: "100 ml",
