@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { tm } from "@/components/ui/Tm";
 import Link from "next/link";
 import { PageHero, SectionHeading, Signature } from "@/components/ui/Section";
 import { aboutBrands, brandStory, collectionLine, commitment, founderNote, mission, values, vision } from "@/data/brand";
@@ -6,16 +7,16 @@ import { products } from "@/data/products";
 import { routes, shopRoutes } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "About GlowWithin® — Brand Story, Founder's Note, Vision, Mission & Values",
+  title: "About GlowWithin™ — Brand Story, Founder's Note, Vision, Mission & Values",
   description:
-    "There is something beautiful within every woman. Read the GlowWithin® brand story, a note from our founder Srilatha, and the vision, mission, commitment and values behind Sri Varamaha Wellness Pvt. Ltd.",
+    "There is something beautiful within every woman. Read the GlowWithin™ brand story, a note from our founder Srilatha, and the vision, mission, commitment and values behind Sri Varamaha Wellness (P) Ltd.",
   alternates: { canonical: routes.about },
 };
 
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About GlowWithin®" title="Her glow is uniquely hers. We are here to nurture it." lead={brandStory.paragraphs[0]} />
+      <PageHero eyebrow="About GlowWithin™" title="Her glow is uniquely hers. We are here to nurture it." lead={brandStory.paragraphs[0]} />
 
       {/* Brand story */}
       <section className="gw-section bg-white" aria-labelledby="brand-story">
@@ -23,16 +24,16 @@ export default function AboutPage() {
           <div className="lg:col-span-4">
             <p className="gw-eyebrow">Brand Story</p>
             <h2 id="brand-story" className="gw-h2">
-              GlowWithin® <span className="gw-gradient-text">Brand Story</span>
+              GlowWithin<sup className="gw-tm">™</sup> <span className="gw-gradient-text">Brand Story</span>
             </h2>
             <hr className="gw-rule" />
             <p className="m-0 font-serif text-[24px] leading-snug text-ink">{brandStory.signature}</p>
-            <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-mocha">{brandStory.signOff}</p>
+            <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-mocha">{tm(brandStory.signOff)}</p>
           </div>
           <div className="gw-prose lg:col-span-8 lg:pl-10">
             {brandStory.paragraphs.slice(1).map((p) => (
               <p key={p} className="text-[17px] leading-8 text-ink">
-                {p}
+                {tm(p)}
               </p>
             ))}
           </div>
@@ -47,7 +48,7 @@ export default function AboutPage() {
             <div className="gw-prose mt-10">
               {founderNote.paragraphs.map((p) => (
                 <p key={p} className="text-[17px] leading-8 text-ink">
-                  {p}
+                  {tm(p)}
                 </p>
               ))}
               <blockquote className="my-10 border-l-4 border-peach bg-white px-8 py-6 font-serif text-[clamp(24px,3vw,34px)] leading-tight text-ink">
@@ -55,14 +56,14 @@ export default function AboutPage() {
               </blockquote>
               {founderNote.closing.map((p) => (
                 <p key={p} className="text-[17px] leading-8 text-ink">
-                  {p}
+                  {tm(p)}
                 </p>
               ))}
               <p className="mt-8 font-serif text-[26px] leading-tight text-ink">{founderNote.signature}</p>
               <p className="mt-8 mb-0 text-[16px] text-ink">{founderNote.signOff}</p>
               <p className="mt-1 mb-0 font-serif text-[30px] text-ink">{founderNote.name}</p>
               <p className="m-0 text-[14px] text-mocha">
-                {founderNote.role}
+                {tm(founderNote.role)}
                 <br />
                 {founderNote.company}
               </p>
@@ -78,7 +79,7 @@ export default function AboutPage() {
           <div className="gw-prose mx-auto mt-10 max-w-[820px] text-center">
             {aboutBrands.paragraphs.map((p) => (
               <p key={p} className="text-[17px] leading-8 text-ink">
-                {p}
+                {tm(p)}
               </p>
             ))}
           </div>
@@ -88,7 +89,7 @@ export default function AboutPage() {
                 <p className="gw-num m-0">0{i + 1}</p>
                 <h3 className="mt-3 mb-1 font-serif text-[22px] leading-tight text-ink">{p.shortName}</h3>
                 <p className="m-0 text-[14px] font-semibold uppercase tracking-[0.12em] text-mocha">{p.promise}</p>
-                <p className="mt-3 mb-4 text-[14px] leading-6 text-ink/80">{p.story[0]}</p>
+                <p className="mt-3 mb-4 text-[14px] leading-6 text-ink/80">{tm(p.story[0])}</p>
                 <Link href={routes.product(p.slug)} className="gw-link text-[14px]">
                   Discover
                 </Link>
@@ -98,21 +99,21 @@ export default function AboutPage() {
           <div className="mx-auto mt-12 max-w-[820px] text-center">
             <p className="m-0 font-serif text-[28px] text-ink">{collectionLine.heading}</p>
             <p className="mt-2 mb-6 text-[14px] font-semibold uppercase tracking-[0.2em] text-mocha">{collectionLine.verbs}</p>
-            <p className="m-0 text-[16px] leading-7 text-ink/85">{collectionLine.closing}</p>
+            <p className="m-0 text-[16px] leading-7 text-ink/85">{tm(collectionLine.closing)}</p>
           </div>
         </div>
       </section>
 
       {/* Vision & Mission */}
-      <section id="vision-mission" className="gw-section bg-cocoa text-white scroll-mt-28" aria-label="Vision and mission">
+      <section id="vision-mission" className="gw-section gw-section--blush scroll-mt-28" aria-label="Vision and mission">
         <div className="gw-container grid grid-cols-1 gap-10 md:grid-cols-2">
-          <div className="border border-white/15 p-8 md:p-12">
-            <p className="gw-eyebrow text-blush!">{vision.heading}</p>
-            <p className="m-0 font-serif text-[clamp(24px,2.6vw,32px)] leading-snug text-white">{vision.text}</p>
+          <div className="gw-panel p-8 md:p-12">
+            <p className="gw-eyebrow">{vision.heading}</p>
+            <p className="m-0 font-serif text-[clamp(24px,2.6vw,32px)] leading-snug text-ink">{vision.text}</p>
           </div>
-          <div className="border border-white/15 p-8 md:p-12">
-            <p className="gw-eyebrow text-blush!">{mission.heading}</p>
-            <p className="m-0 font-serif text-[clamp(24px,2.6vw,32px)] leading-snug text-white">{mission.text}</p>
+          <div className="gw-panel p-8 md:p-12">
+            <p className="gw-eyebrow">{mission.heading}</p>
+            <p className="m-0 font-serif text-[clamp(24px,2.6vw,32px)] leading-snug text-ink">{mission.text}</p>
           </div>
         </div>
       </section>
@@ -134,7 +135,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section id="values" className="gw-section bg-shell scroll-mt-28" aria-labelledby="values-heading">
+      <section id="values" className="gw-section bg-cream scroll-mt-28" aria-labelledby="values-heading">
         <div className="gw-container">
           <SectionHeading eyebrow="What we stand for" title={<span id="values-heading">{values.heading}</span>} />
           <ol className="mt-12 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-3">

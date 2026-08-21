@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { tm } from "@/components/ui/Tm";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero, Signature } from "@/components/ui/Section";
@@ -12,7 +13,7 @@ export const revalidate = 3600;
 export const metadata: Metadata = {
   title: "Our Products — Nature's Heroes. Thoughtful Care. Her Everyday Glow.",
   description:
-    "GlowWithin® Nourishing Hair Serum, Brightening Face Serum, Gel Based Face Cream and Intimate Wash — every formulation begins with a purpose, and every purpose has its hero ingredient.",
+    "GlowWithin™ Nourishing Hair Serum, Brightening Face Serum, Gel Based Face Cream and Intimate Wash — every formulation begins with a purpose, and every purpose has its hero ingredient.",
   alternates: { canonical: routes.products },
 };
 
@@ -77,7 +78,7 @@ export default async function ProductsPage() {
                     0{i + 1} | {p.category}
                   </p>
                   <h2 id={`${p.slug}-title`} className="gw-h2">
-                    {p.name}
+                    {tm(p.name)}
                   </h2>
                   <p className="mt-4 mb-0 text-[13px] font-semibold uppercase tracking-[0.16em] text-mocha">Hero ingredients</p>
                   <p className="mt-1 mb-0 font-serif text-[clamp(20px,2.2vw,26px)] leading-snug text-ink">{p.heroLine}</p>
@@ -86,10 +87,10 @@ export default async function ProductsPage() {
                   <div className="gw-prose mt-5">
                     {p.story.map((s) => (
                       <p key={s} className="text-[16px] leading-7 text-ink">
-                        {s}
+                        {tm(s)}
                       </p>
                     ))}
-                    <p className="text-[16px] leading-7 text-ink">{p.formulation}</p>
+                    <p className="text-[16px] leading-7 text-ink">{tm(p.formulation)}</p>
                   </div>
 
                   {p.extra && (
@@ -138,18 +139,18 @@ export default async function ProductsPage() {
         );
       })}
 
-      <section className="gw-section bg-cocoa text-white" aria-label="The collection">
+      <section className="gw-section gw-section--blush text-ink" aria-label="The collection">
         <div className="gw-container">
           <div className="mx-auto max-w-[820px] text-center">
-            <p className="gw-eyebrow text-blush!">{collectionLine.verbs}</p>
-            <p className="m-0 font-serif text-[clamp(28px,3.6vw,44px)] leading-tight text-white">{collectionLine.heading}</p>
-            <p className="mt-6 mb-0 text-[16px] leading-7 text-white/85">{collectionLine.closing}</p>
+            <p className="gw-eyebrow">{collectionLine.verbs}</p>
+            <p className="m-0 font-serif text-[clamp(28px,3.6vw,44px)] leading-tight text-ink">{collectionLine.heading}</p>
+            <p className="mt-6 mb-0 text-[16px] leading-7 text-ink/85">{tm(collectionLine.closing)}</p>
           </div>
           <div className="mt-10">
-            <Signature line={collectionLine.evolves} signOff={collectionLine.signOff} light />
+            <Signature line={collectionLine.evolves} signOff={collectionLine.signOff} />
           </div>
           <div className="mt-8 flex justify-center">
-            <a href={shopRoutes.catalogue} className="gw-btn gw-btn--light">
+            <a href={shopRoutes.catalogue} className="gw-btn">
               Shop the collection
             </a>
           </div>

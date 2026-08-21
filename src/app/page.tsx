@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { tm } from "@/components/ui/Tm";
 import Link from "next/link";
 import { HeroSlides } from "@/components/home/HeroSlides";
 import { ProductCard } from "@/components/ui/ProductCard";
@@ -56,11 +57,11 @@ export default async function HomePage() {
           <div className="gw-prose lg:col-span-7 lg:pl-8">
             {brandStory.paragraphs.slice(1).map((p) => (
               <p key={p} className="text-[16px] leading-7 text-ink">
-                {p}
+                {tm(p)}
               </p>
             ))}
             <p className="mt-6 mb-0 font-serif text-[28px] leading-tight text-ink">{brandStory.signature}</p>
-            <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-mocha">{brandStory.signOff}</p>
+            <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-mocha">{tm(brandStory.signOff)}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href={routes.about} className="gw-btn">
                 About us
@@ -103,31 +104,31 @@ export default async function HomePage() {
       </section>
 
       {/* 5 · One Brand. Many Expressions of Her Glow */}
-      <section className="gw-section bg-cocoa text-white" aria-labelledby="expressions-heading">
+      <section className="gw-section gw-section--blush text-ink" aria-labelledby="expressions-heading">
         <div className="gw-container">
           <div className="mx-auto max-w-[820px] text-center">
-            <p className="gw-eyebrow text-blush!">{collectionLine.verbs}</p>
-            <h2 id="expressions-heading" className="gw-h2 text-white!">
+            <p className="gw-eyebrow">{collectionLine.verbs}</p>
+            <h2 id="expressions-heading" className="gw-h2">
               {collectionLine.heading}
             </h2>
             <hr className="gw-rule gw-rule--center" />
           </div>
           <ul className="mx-auto mt-10 grid max-w-[1000px] list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-4">
             {collectionLine.items.map((item, i) => (
-              <li key={item.product} className="border border-white/15 p-7 text-center">
-                <p className="m-0 font-serif text-[40px] leading-none text-blush">0{i + 1}</p>
-                <p className="mt-3 mb-1 text-[13px] font-semibold uppercase tracking-[0.16em] text-white/70">{item.product}</p>
-                <p className="m-0 font-serif text-[24px] leading-tight text-white">{item.line}</p>
+              <li key={item.product} className="gw-panel p-7 text-center">
+                <p className="m-0 font-serif text-[40px] leading-none text-peach">0{i + 1}</p>
+                <p className="mt-3 mb-1 text-[13px] font-semibold uppercase tracking-[0.16em] text-mocha">{item.product}</p>
+                <p className="m-0 font-serif text-[24px] leading-tight text-ink">{item.line}</p>
               </li>
             ))}
           </ul>
-          <p className="mx-auto mt-10 mb-0 max-w-[820px] text-center text-[16px] leading-7 text-white/85">{collectionLine.closing}</p>
+          <p className="mx-auto mt-10 mb-0 max-w-[820px] text-center text-[16px] leading-7 text-ink/85">{tm(collectionLine.closing)}</p>
           <ol className="mx-auto mt-10 flex max-w-[1100px] list-none flex-wrap items-center justify-center gap-x-3 gap-y-3 p-0 text-center">
             {collectionLine.journey.map((step, i) => (
-              <li key={step} className="flex items-center gap-3 text-[14px] font-medium text-white/90">
-                <span className="border border-white/25 px-4 py-2">{step}</span>
+              <li key={step} className="flex items-center gap-3 text-[14px] font-medium text-ink">
+                <span className="border border-bronze/40 bg-white/60 px-4 py-2">{step}</span>
                 {i < collectionLine.journey.length - 1 && (
-                  <span aria-hidden="true" className="text-blush">
+                  <span aria-hidden="true" className="text-bronze">
                     →
                   </span>
                 )}
@@ -135,7 +136,7 @@ export default async function HomePage() {
             ))}
           </ol>
           <div className="mt-12">
-            <Signature line={collectionLine.evolves} signOff={collectionLine.signOff} light />
+            <Signature line={collectionLine.evolves} signOff={collectionLine.signOff} />
           </div>
         </div>
       </section>
@@ -167,7 +168,7 @@ export default async function HomePage() {
       </section>
 
       {/* 7 · Founder's note teaser */}
-      <section className="gw-section bg-shell" aria-labelledby="founder-heading">
+      <section className="gw-section bg-cream" aria-labelledby="founder-heading">
         <div className="gw-container grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
             <p className="gw-eyebrow">A Note from the Founder</p>
@@ -177,14 +178,14 @@ export default async function HomePage() {
             <hr className="gw-rule" />
             <p className="m-0 font-serif text-[22px] text-ink">{founderNote.name}</p>
             <p className="m-0 text-[14px] text-mocha">
-              {founderNote.role}
+              {tm(founderNote.role)}
               <br />
               {founderNote.company}
             </p>
           </div>
           <div className="gw-prose lg:col-span-8 lg:pl-10">
-            <p className="text-[16px] leading-7 text-ink">{founderNote.paragraphs[2]}</p>
-            <p className="text-[16px] leading-7 text-ink">{founderNote.paragraphs[3]}</p>
+            <p className="text-[16px] leading-7 text-ink">{tm(founderNote.paragraphs[2])}</p>
+            <p className="text-[16px] leading-7 text-ink">{tm(founderNote.paragraphs[3])}</p>
             <Link href={routes.founder} className="gw-link mt-2 inline-block text-[14px]">
               Read the full note
             </Link>
@@ -211,10 +212,10 @@ export default async function HomePage() {
       {/* 9 · Closing CTA */}
       <section className="gw-section bg-cream" aria-label="Shop GlowWithin">
         <div className="gw-container">
-          <Signature line={brandStory.signature} signOff="GlowWithin® · For Her, Forever." />
+          <Signature line={brandStory.signature} signOff="GlowWithin™ · For Her, Forever." />
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a href={shopRoutes.catalogue} className="gw-btn">
-              Shop GlowWithin®
+              Shop GlowWithin<sup className="gw-tm">™</sup>
             </a>
             <Link href={routes.contact} className="gw-btn gw-btn--outline">
               Contact us

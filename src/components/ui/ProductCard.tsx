@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { tm } from "@/components/ui/Tm";
 import Link from "next/link";
 import type { Product } from "@/data/products";
 import type { WooProduct } from "@/lib/woo";
@@ -33,7 +34,7 @@ export function ProductCard({ product, live, priority = false }: { product: Prod
         <p className="mb-1 text-[12px] font-semibold uppercase tracking-[0.14em] text-mocha">{product.category}</p>
         <h3 className="m-0 font-serif text-[26px] leading-[1.2] text-ink">
           <Link href={routes.product(product.slug)} className="text-ink no-underline hover:text-wine">
-            {product.shortName}
+            {tm(product.shortName)}
           </Link>
         </h3>
         <p className="mt-1 mb-0 font-sans text-[15px] text-ink/80">{product.promise}</p>

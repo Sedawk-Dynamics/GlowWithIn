@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { tm } from "@/components/ui/Tm";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -42,7 +43,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     name: p.name,
     image: [p.image.src, `${APEX_ORIGIN}${p.banner}`],
     description: p.story.join(" "),
-    brand: { "@type": "Brand", name: "GlowWithin®" },
+    brand: { "@type": "Brand", name: "GlowWithin™" },
     category: p.category,
     url: `${APEX_ORIGIN}${routes.product(p.slug)}`,
     ...(wp
@@ -63,7 +64,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* banner — full 16:9, never cropped */}
-      <section className="bg-[#fbeee6]" aria-label={`${p.name} banner`}>
+      <section className="bg-cream" aria-label={`${p.name} banner`}>
         <Image src={p.banner} alt={`${p.name} — ${p.promise}`} width={2560} height={1440} sizes="100vw" priority className="block h-auto w-full" />
       </section>
 
@@ -90,7 +91,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div className="lg:col-span-7">
               <p className="gw-eyebrow">{p.category}</p>
               <h1 id="product-title" className="gw-h1">
-                {p.name}
+                {tm(p.name)}
               </h1>
               <p className="mt-3 mb-0 font-serif text-[26px] text-ink">{p.promise}</p>
               <hr className="gw-rule" />
@@ -132,10 +133,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               <div className="gw-prose mt-4">
                 {p.story.map((s) => (
                   <p key={s} className="text-[16px] leading-7 text-ink">
-                    {s}
+                    {tm(s)}
                   </p>
                 ))}
-                <p className="text-[16px] leading-7 text-ink">{p.formulation}</p>
+                <p className="text-[16px] leading-7 text-ink">{tm(p.formulation)}</p>
               </div>
               {p.extra && (
                 <div className="mt-6 border-l-4 border-peach bg-cream px-5 py-4">
@@ -184,7 +185,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="gw-section bg-shell" aria-labelledby="more-heading">
+      <section className="gw-section bg-cream" aria-labelledby="more-heading">
         <div className="gw-container">
           <h2 id="more-heading" className="gw-h2 text-center">
             More expressions of her glow

@@ -14,24 +14,24 @@ import "@/styles/wp/footer-tmpl.css";
 export const metadata: Metadata = {
   metadataBase: new URL(APEX_ORIGIN),
   title: {
-    default: "GlowWithin® — For Her, Forever | Women's Wellness: Hair, Skin & Intimate Care",
-    template: "%s | GlowWithin®",
+    default: "GlowWithin™ — For Her, Forever | Women's Wellness: Hair, Skin & Intimate Care",
+    template: "%s | GlowWithin™",
   },
   description:
-    "GlowWithin® brings together thoughtfully selected ingredients, modern wellness science and everyday care to help her feel fresh, confident and beautifully herself — across hair, skin and intimate wellness. Your Glow Is Within. Let It Shine Through.",
+    "GlowWithin™ brings together thoughtfully selected ingredients, modern wellness science and everyday care to help her feel fresh, confident and beautifully herself — across hair, skin and intimate wellness. Your Glow Is Within. Let It Shine Through.",
   keywords: [
     "GlowWithin", "women's wellness", "hair serum", "face serum", "gel face cream", "intimate wash",
     "Sri Varamaha Wellness", "women first skincare India",
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    siteName: "GlowWithin®",
+    siteName: "GlowWithin™",
     locale: "en_IN",
     type: "website",
     url: APEX_ORIGIN,
-    title: "GlowWithin® — For Her, Forever",
+    title: "GlowWithin™ — For Her, Forever",
     description: "Thoughtful care created around her. Hair · Skin · Intimate wellness.",
-    images: [{ url: "/images/banners/banner-4.webp", width: 2560, height: 1440, alt: "The GlowWithin® Women Wellness Collection" }],
+    images: [{ url: "/images/banners/banner-4.webp", width: 2560, height: 1440, alt: "The GlowWithin™ Women Wellness Collection" }],
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
@@ -55,7 +55,7 @@ const BODY_CLASSES =
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "GlowWithin®",
+  name: "GlowWithin™",
   legalName: contact.legalName,
   url: APEX_ORIGIN,
   logo: `${APEX_ORIGIN}/images/brand/glowwithin-logo.png`,

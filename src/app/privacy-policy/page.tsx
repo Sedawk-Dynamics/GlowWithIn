@@ -4,7 +4,7 @@ import { contact, routes, SHOP_ORIGIN } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How GlowWithin® (Sri Varamaha Wellness Pvt. Ltd.) collects, uses and protects your personal information.",
+  description: "How GlowWithin™ (Sri Varamaha Wellness (P) Ltd.) collects, uses and protects your personal information.",
   alternates: { canonical: routes.privacy },
 };
 
@@ -14,7 +14,7 @@ export default function PrivacyPage() {
   return (
     <LegalPage title="Privacy Policy" updated="August 2026">
       <p>
-        {contact.legalName} (&ldquo;GlowWithin®&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) respects your privacy. This policy explains what personal
+        {contact.legalName} (&ldquo;GlowWithin<sup className="gw-tm">™</sup>&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) respects your privacy. This policy explains what personal
         information we collect through glowwithin.co.in and our online shop at {shopHost}, why we collect it, and the choices you have.
       </p>
       <h2>Information we collect</h2>
@@ -36,7 +36,7 @@ export default function PrivacyPage() {
       <ul>
         <li>To process and deliver your orders and provide customer support.</li>
         <li>To respond to your enquiries.</li>
-        <li>To send order updates and, only if you opt in, news about GlowWithin® products. You can unsubscribe at any time.</li>
+        <li>To send order updates and, only if you opt in, news about GlowWithin<sup className="gw-tm">™</sup> products. You can unsubscribe at any time.</li>
         <li>To keep our websites secure, prevent fraud and improve our products and services.</li>
         <li>To meet our legal and accounting obligations.</li>
       </ul>

@@ -6,9 +6,9 @@ import { whyChooseUs } from "@/data/brand";
 import { routes, shopRoutes } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Why Choose GlowWithin®? — Because Her Wellness Deserves Thoughtful Care",
+  title: "Why Choose GlowWithin™? — Because Her Wellness Deserves Thoughtful Care",
   description:
-    "Women first. Thoughtfully selected ingredients. Science with sensitivity. Celebrate, don't change. Care that evolves with her. Trust that lasts. What makes GlowWithin® special.",
+    "Women first. Thoughtfully selected ingredients. Science with sensitivity. Celebrate, don't change. Care that evolves with her. Trust that lasts. What makes GlowWithin™ special.",
   alternates: { canonical: routes.whyGlowWithin },
 };
 
@@ -32,29 +32,29 @@ export default function WhyPage() {
         </div>
       </section>
 
-      <section className="gw-section bg-cocoa text-white" aria-labelledby="special-heading">
+      <section className="gw-section gw-section--blush text-ink" aria-labelledby="special-heading">
         <div className="gw-container text-center">
-          <h2 id="special-heading" className="gw-h2 text-white!">
+          <h2 id="special-heading" className="gw-h2">
             {s.heading}
           </h2>
           <hr className="gw-rule gw-rule--center" />
           <div className="mx-auto max-w-[720px]">
             {s.lines.map((l) => (
-              <p key={l} className="mb-1 font-serif text-[clamp(22px,2.6vw,30px)] text-white/70">
+              <p key={l} className="mb-1 font-serif text-[clamp(22px,2.6vw,30px)] text-ink/60">
                 {l}
               </p>
             ))}
-            <p className="mt-6 mb-2 font-serif text-[clamp(30px,4vw,48px)] leading-tight text-white">{s.answer}</p>
-            <p className="m-0 text-[15px] font-semibold uppercase tracking-[0.16em] text-blush">{s.her}</p>
+            <p className="mt-6 mb-2 font-serif text-[clamp(30px,4vw,48px)] leading-tight text-ink">{s.answer}</p>
+            <p className="m-0 text-[15px] font-semibold uppercase tracking-[0.16em] text-mocha">{s.her}</p>
           </div>
           <div className="mt-12">
-            <Signature line={s.signature} signOff={`GlowWithin® · ${s.signOff}`} light />
+            <Signature line={s.signature} signOff={`GlowWithin™ · ${s.signOff}`} />
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a href={shopRoutes.catalogue} className="gw-btn gw-btn--light">
-              Shop GlowWithin®
+            <a href={shopRoutes.catalogue} className="gw-btn">
+              Shop GlowWithin<sup className="gw-tm">™</sup>
             </a>
-            <Link href={routes.products} className="gw-btn gw-btn--outline border-white! text-white! hover:bg-white! hover:text-ink!">
+            <Link href={routes.products} className="gw-btn gw-btn--outline">
               Our products
             </Link>
           </div>

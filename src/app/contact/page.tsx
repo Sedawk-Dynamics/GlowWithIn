@@ -5,8 +5,8 @@ import { Icon } from "@/components/ui/Icons";
 import { contact, routes, shopRoutes } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "Contact GlowWithin® — We'd love to hear from you",
-  description: `Write to ${contact.email} or call ${contact.phone}. Sri Varamaha Wellness Pvt. Ltd., Rainbow Vistas, Moosapet, Hyderabad – 500018. ${contact.hours}.`,
+  title: "Contact GlowWithin™ — We'd love to hear from you",
+  description: `Write to ${contact.email} or call ${contact.phone}. Sri Varamaha Wellness (P) Ltd., Rainbow Vistas, Moosapet, Hyderabad – 500018. ${contact.hours}.`,
   alternates: { canonical: routes.contact },
 };
 

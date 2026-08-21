@@ -129,7 +129,7 @@ export function SiteHeader() {
                     <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-4dmiazhwm mcb-item-header_logo-inner">
                       <a className="logo-wrapper gw-mobile-logo" href={routes.home} aria-label="GlowWithin — home">
                         {/* eslint-disable-next-line @next/next/no-img-element -- theme-sized logo */}
-                        <img src={LOGO} alt="GlowWithin® — For Her, Forever" width={357} height={315} />
+                        <img src={LOGO} alt="GlowWithin™ — For Her, Forever" width={357} height={315} />
                       </a>
                     </div>
                   </div>
@@ -246,7 +246,7 @@ export function SiteHeader() {
                     <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-ohgoqpcbl mcb-item-header_logo-inner">
                       <a className="logo-wrapper" href={routes.home} aria-label="GlowWithin — home">
                         {/* eslint-disable-next-line @next/next/no-img-element -- theme-sized logo */}
-                        <img fetchPriority="high" src={LOGO} alt="GlowWithin® — For Her, Forever" width={357} height={315} />
+                        <img fetchPriority="high" src={LOGO} alt="GlowWithin™ — For Her, Forever" width={357} height={315} />
                       </a>
                     </div>
                   </div>

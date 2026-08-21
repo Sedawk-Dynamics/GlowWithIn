@@ -135,9 +135,9 @@ export const importantNav: NavItem[] = [
  * ------------------------------------------------------------------ */
 
 export const contact = {
-  brand: "GlowWithin®",
+  brand: "GlowWithin™",
   brandPlain: "GlowWithin",
-  legalName: "Sri Varamaha Wellness Pvt. Ltd.",
+  legalName: "Sri Varamaha Wellness (P) Ltd.",
   tagline: "For Her, Forever.",
   signature: "Your Glow Is Within. Let It Shine Through.",
   phone: "+91 70757 92176",

@@ -1,5 +1,5 @@
 /*
- * GlowWithin® — global stylesheet.
+ * GlowWithin™ — global stylesheet.
  *
  * Cascade layers, lowest priority first:
  *   wp         the WordPress / BeTheme stylesheets copied verbatim from the live
@@ -96,6 +96,16 @@
     line-height: 30px;
     color: var(--color-ink);
   }
+  /* trade-mark sign, always superscript (see components/ui/Tm.tsx) */
+  .gw-tm {
+    font-size: 0.5em;
+    line-height: 0;
+    vertical-align: super;
+    margin-left: 0.04em;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: 0;
+  }
   .gw-prose p { margin: 0 0 18px; }
   .gw-prose p:last-child { margin-bottom: 0; }
   .gw-prose a { color: var(--color-wine); }
@@ -131,18 +141,22 @@
     border-radius: 0;
     border: 1px solid var(--color-cocoa);
     background: var(--color-cocoa);
-    color: #fff !important;
-    text-decoration: none !important;
+    color: #fff;
+    text-decoration: none;
     transition: background-color .25s ease, color .25s ease, border-color .25s ease;
     cursor: pointer;
   }
-  .gw-btn:hover { background: var(--color-wine); border-color: var(--color-wine); color: #fff !important; }
-  .gw-btn--outline { background: transparent; color: var(--color-cocoa) !important; }
-  .gw-btn--outline:hover { background: var(--color-cocoa); color: #fff !important; }
-  .gw-btn--peach { background: var(--color-peach); border-color: var(--color-peach); color: var(--color-ink) !important; }
-  .gw-btn--peach:hover { background: var(--color-cocoa); border-color: var(--color-cocoa); color: #fff !important; }
-  .gw-btn--light { background: #fff; border-color: #fff; color: var(--color-ink) !important; }
-  .gw-btn--light:hover { background: var(--color-ink); border-color: var(--color-ink); color: #fff !important; }
+  .gw-btn:hover { background: var(--color-wine); border-color: var(--color-wine); color: #fff; }
+  .gw-btn--outline { background: transparent; color: var(--color-cocoa); }
+  .gw-btn--outline:hover { background: var(--color-cocoa); color: #fff; }
+  .gw-btn--peach { background: var(--color-peach); border-color: var(--color-peach); color: var(--color-ink); }
+  .gw-btn--peach:hover { background: var(--color-cocoa); border-color: var(--color-cocoa); color: #fff; }
+  .gw-btn--light { background: #fff; border-color: #fff; color: var(--color-ink); }
+  .gw-btn--light:hover { background: var(--color-ink); border-color: var(--color-ink); color: #fff; }
+  /* white outline on dark / tinted backgrounds */
+  .gw-btn--ghost { background: transparent; border-color: #fff; color: #fff; }
+  .gw-btn--ghost:hover { background: #fff; border-color: #fff; color: var(--color-ink); }
+  a.gw-btn, a.gw-btn:hover, a.gw-btn:focus { text-decoration: none; }
   .gw-btn:disabled { opacity: .6; cursor: not-allowed; }
   .gw-link {
     font-weight: 600;
@@ -197,8 +211,8 @@
   .gw-packshot {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1;
-    background: var(--color-shell);
+    aspect-ratio: 4 / 5;            /* pack shots are cropped 4:5 from the client banners */
+    background: #fff;
     overflow: hidden;
   }
   .gw-packshot img {
@@ -209,7 +223,7 @@
   }
 
   /* ---------- hero slider: full banner, never cropped ---------- */
-  .gw-hero { position: relative; background: #fbeee6; }
+  .gw-hero { position: relative; background: var(--color-cream); }
   .gw-hero__track {
     display: flex;
     overflow-x: auto;
@@ -257,13 +271,16 @@
     .gw-hero__dot { width: 10px; height: 10px; }
   }
 
-  /* ---------- page hero band ---------- */
-  .gw-pagehero {
-    background:
-      radial-gradient(1200px 400px at 85% 0%, rgba(253, 197, 184, .45), transparent 60%),
-      radial-gradient(800px 300px at 0% 100%, rgba(237, 183, 135, .35), transparent 60%),
-      var(--color-shell);
+  /* ---------- tinted section (the brand's peach/blush on white) ---------- */
+  /* The shop's own soft panel tone (BeTheme #F8F4F3) — no new colours. */
+  .gw-section--blush { background: var(--color-cream); }
+  .gw-panel {
+    background: #fff;
+    border: 1px solid rgba(52, 37, 47, .08);
   }
+
+  /* ---------- page hero band ---------- */
+  .gw-pagehero { background: var(--color-cream); }
 
   /* ---------- forms ---------- */
   .gw-field {

@@ -69,7 +69,7 @@ export function HeroSlides() {
     <section
       className="gw-hero"
       aria-roledescription="carousel"
-      aria-label="GlowWithin® products"
+      aria-label="GlowWithin™ products"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={() => setPaused(true)}

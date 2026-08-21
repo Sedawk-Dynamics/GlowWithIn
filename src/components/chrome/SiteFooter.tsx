@@ -93,7 +93,7 @@ export function SiteFooter() {
                 <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-emncdgkyr mcb-item-footer_logo-inner">
                   <a className="logo-wrapper" href={routes.home} aria-label="GlowWithin — home">
                     {/* eslint-disable-next-line @next/next/no-img-element -- theme-sized logo */}
-                    <img src={LOGO} alt="GlowWithin® — For Her, Forever" width={357} height={315} loading="lazy" />
+                    <img src={LOGO} alt="GlowWithin™ — For Her, Forever" width={357} height={315} loading="lazy" />
                   </a>
                 </div>
               </div>
@@ -154,7 +154,7 @@ export function SiteFooter() {
               <div className="column mcb-column mcb-item-noyd0wqyk three-fifth laptop-three-fifth tablet-one mobile-one column_plain_text vb-item">
                 <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-noyd0wqyk mcb-item-plain_text-inner">
                   <div className="desc">
-                    © {year} GlowWithin® | {contact.legalName} | All Rights Reserved | Designed &amp; Developed By{" "}
+                    © {year} GlowWithin<sup className="gw-tm">™</sup> | {contact.legalName} | All Rights Reserved | Designed &amp; Developed By{" "}
                     <a href="https://webel.io/" target="_blank" rel="noopener noreferrer">
                       Webel.io
                     </a>

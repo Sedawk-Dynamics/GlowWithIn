@@ -4,7 +4,7 @@ import { contact, routes, SHOP_ORIGIN } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
-  description: "Terms governing the use of glowwithin.co.in and purchases made on the GlowWithin® online shop.",
+  description: "Terms governing the use of glowwithin.co.in and purchases made on the GlowWithin™ online shop.",
   alternates: { canonical: routes.terms },
 };
 
@@ -19,7 +19,7 @@ export default function TermsPage() {
       </p>
       <h2>Products and claims</h2>
       <p>
-        GlowWithin® products are cosmetic and personal-care products intended for external use only. They are not medicines and are not intended to
+        GlowWithin<sup className="gw-tm">™</sup> products are cosmetic and personal-care products intended for external use only. They are not medicines and are not intended to
         diagnose, treat, cure or prevent any disease. Always read the label, follow the directions for use and discontinue use if irritation occurs.
         Perform a patch test before first use. Product descriptions use careful, responsible language; individual experiences may vary.
       </p>
@@ -42,7 +42,7 @@ export default function TermsPage() {
       <p>You are responsible for keeping your shop account credentials confidential and for all activity under your account.</p>
       <h2>Intellectual property</h2>
       <p>
-        GlowWithin®, the GlowWithin® logo, product names, images and all website content are the property of {contact.legalName} or its licensors and
+        GlowWithin<sup className="gw-tm">™</sup>, the GlowWithin<sup className="gw-tm">™</sup> logo, product names, images and all website content are the property of {contact.legalName} or its licensors and
         may not be reproduced without written permission.
       </p>
       <h2>Limitation of liability</h2>

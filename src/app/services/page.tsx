@@ -7,7 +7,7 @@ import { routes } from "@/lib/links";
 export const metadata: Metadata = {
   title: "Our Services — Building Wellness Solutions around Her",
   description:
-    "Sri Varamaha Wellness Pvt. Ltd. builds thoughtful women's wellness solutions: women-centric product development, science-led formulation, brand building & marketing, distribution, and a growing women's wellness ecosystem.",
+    "Sri Varamaha Wellness (P) Ltd. builds thoughtful women's wellness solutions: women-centric product development, science-led formulation, brand building & marketing, distribution, and a growing women's wellness ecosystem.",
   alternates: { canonical: routes.services },
 };
 
@@ -57,21 +57,21 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      <section className="gw-section bg-cocoa text-white" aria-label="Closing">
+      <section className="gw-section gw-section--blush text-ink" aria-label="Closing">
         <div className="gw-container text-center">
           {services.outro.map((line) => (
-            <p key={line} className="mx-auto mb-3 max-w-[820px] font-serif text-[clamp(24px,3vw,36px)] leading-snug text-white">
+            <p key={line} className="mx-auto mb-3 max-w-[820px] font-serif text-[clamp(24px,3vw,36px)] leading-snug text-ink">
               {line}
             </p>
           ))}
           <div className="mt-8">
-            <Signature line={services.signOff} light />
+            <Signature line={services.signOff} />
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link href={routes.contact} className="gw-btn gw-btn--light">
+            <Link href={routes.contact} className="gw-btn">
               Partner with us
             </Link>
-            <Link href={routes.products} className="gw-btn gw-btn--outline border-white! text-white! hover:bg-white! hover:text-ink!">
+            <Link href={routes.products} className="gw-btn gw-btn--outline">
               Our products
             </Link>
           </div>

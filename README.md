@@ -1,4 +1,4 @@
-# GlowWithin® — hybrid frontend
+# GlowWithin™ — hybrid frontend
 
 Next.js 16 brand site for **glowwithin.co.in**, WooCommerce stays on **shop.glowwithin.co.in**.
 Same split as banarasivastram.com and mahidha.com.
@@ -68,12 +68,12 @@ Vercel, `main` → production. Set the env vars from `.env.example`
 
 ## Still to do in wp-admin (cannot be done through the MCP connector)
 
-1. **Product slugs** are still the theme demo slugs (`hand-cream-soft-dictum`,
-   `face-natural-skin-facisilis`, `body-cream-parturient`,
-   `schampoo-with-olive`). Rename them (Rank Math will add the redirects) and
-   update `shopSlug` in `src/data/products.ts`.
-2. **Short descriptions** on the four products (the long descriptions and
-   names were already updated from the brand document).
+1. ~~Product slugs~~ — renamed on 2026-08-21 (`nourishing-hair-serum`,
+   `brightening-face-serum`, `gel-based-face-cream`, `intimate-wash`); old
+   slugs 301 via Rank Math. If a slug changes again, update `shopSlug` in
+   `src/data/products.ts`.
+2. **Short descriptions** on the four products are still lorem ipsum (names
+   and long descriptions were updated from the brand document).
 3. **Shop header/footer menus** — point HOME / ABOUT / CONTACT (and add OUR
    PRODUCTS / SERVICES) at `https://glowwithin.co.in/...` so the two sites
    interlink both ways; the "Customer service" footer menu still points at

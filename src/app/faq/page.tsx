@@ -1,22 +1,23 @@
 import type { Metadata } from "next";
+import { tm } from "@/components/ui/Tm";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/Section";
 import { contact, routes, shopRoutes } from "@/lib/links";
 
 export const metadata: Metadata = {
-  title: "FAQ — GlowWithin® questions, answered",
-  description: "Who GlowWithin® is for, what the hero ingredients do, how to use the products, and how ordering on the shop works.",
+  title: "FAQ — GlowWithin™ questions, answered",
+  description: "Who GlowWithin™ is for, what the hero ingredients do, how to use the products, and how ordering on the shop works.",
   alternates: { canonical: routes.faq },
 };
 
 const faqs: { q: string; a: React.ReactNode }[] = [
   {
-    q: "Who is GlowWithin® for?",
+    q: "Who is GlowWithin™ for?",
     a: "Every woman. Our range is created around the everyday needs of women across hair, skin and intimate wellness — from adolescence to adulthood and through every new chapter. Her needs evolve, and our care evolves with her.",
   },
   {
     q: "What does “hero ingredient” mean?",
-    a: "Every GlowWithin® formulation begins with a purpose, and every purpose has its hero — the ingredient chosen for a meaningful role in that product. The Hair Serum leads with Rice Bran Water, Amla, Bhringraj and Brahmi; the Face Serum with Snail Mucin, Vitamin C, Niacinamide and Alpha Arbutin; the Gel Face Cream with Hyaluronic Acid, Aloe Vera and Centella; the Intimate Wash with Lactic Acid, Cranberry, Tea Tree Extract and Inulin (pre-biotic).",
+    a: "Every GlowWithin™ formulation begins with a purpose, and every purpose has its hero — the ingredient chosen for a meaningful role in that product. The Hair Serum leads with Rice Bran Water, Amla, Bhringraj and Brahmi; the Face Serum with Snail Mucin, Vitamin C, Niacinamide and Alpha Arbutin; the Gel Face Cream with Hyaluronic Acid, Aloe Vera and Centella; the Intimate Wash with Lactic Acid, Cranberry, Tea Tree Extract and Inulin (pre-biotic).",
   },
   {
     q: "Why is the face cream gel-based?",
@@ -24,14 +25,14 @@ const faqs: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "What does “pH-conscious” mean for the Intimate Wash?",
-    a: "Intimate skin is naturally mildly acidic. GlowWithin® Intimate Wash is formulated with Lactic Acid to help support that naturally acidic environment, with Inulin (a pre-biotic) for a gentle, microbiome-conscious approach to daily care.",
+    a: "Intimate skin is naturally mildly acidic. GlowWithin™ Intimate Wash is formulated with Lactic Acid to help support that naturally acidic environment, with Inulin (a pre-biotic) for a gentle, microbiome-conscious approach to daily care.",
   },
   {
     q: "Can I use the products every day?",
     a: "Yes — each product is designed as everyday care. Always follow the directions on the pack, patch-test before first use and discontinue if irritation occurs. The products are cosmetics for external use and are not medicines.",
   },
   {
-    q: "Where can I buy GlowWithin®?",
+    q: "Where can I buy GlowWithin™?",
     a: (
       <>
         On our official online shop at{" "}
@@ -96,12 +97,12 @@ export default function FaqPage() {
             {faqs.map((f) => (
               <details key={f.q} className="group border-b border-ink/10 py-5">
                 <summary className="flex cursor-pointer list-none items-start justify-between gap-6 font-serif text-[24px] leading-snug text-ink [&::-webkit-details-marker]:hidden">
-                  {f.q}
+                  {tm(f.q)}
                   <span aria-hidden="true" className="mt-1 text-peach transition-transform group-open:rotate-45">
                     +
                   </span>
                 </summary>
-                <div className="mt-3 pr-8 text-[16px] leading-7 text-ink/85">{f.a}</div>
+                <div className="mt-3 pr-8 text-[16px] leading-7 text-ink/85">{tm(f.a)}</div>
               </details>
             ))}
           </div>

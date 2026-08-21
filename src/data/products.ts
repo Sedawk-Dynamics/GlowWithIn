@@ -1,13 +1,13 @@
 /**
- * The four GlowWithin® products — editorial content from the brand document's
+ * The four GlowWithin™ products — editorial content from the brand document's
  * "OUR PRODUCTS" section (hero ingredient → functional benefit → emotional
  * benefit → reason to buy).
  *
  * Prices, stock and the Buy button resolve against WooCommerce by `wooId`
  * (shop.glowwithin.co.in product IDs). `slug` is the apex editorial route;
- * `shopSlug` is the product's current slug on the shop (still the theme demo
- * slugs — rename them in wp-admin and update here; the live permalink from the
- * Store API is preferred whenever it is available).
+ * `shopSlug` is the product's slug on the shop (renamed from the theme demo
+ * slugs on 2026-08-21; the live permalink from the Store API is preferred
+ * whenever it is available).
  */
 
 export interface HeroIngredient {
@@ -18,11 +18,11 @@ export interface HeroIngredient {
 export interface Product {
   slug: string;
   wooId: number;
-  /** Current product slug on shop.glowwithin.co.in (theme demo slugs until renamed in wp-admin). */
+  /** Product slug on shop.glowwithin.co.in — keep in sync if it is ever renamed in wp-admin. */
   shopSlug: string;
   category: string;
   categorySlug: string;
-  /** Full marketing name, e.g. "GlowWithin® Nourishing Hair Serum". */
+  /** Full marketing name, e.g. "GlowWithin™ Nourishing Hair Serum". */
   name: string;
   /** Short name used on cards and in the collection line. */
   shortName: string;
@@ -56,20 +56,20 @@ export const products: Product[] = [
   {
     slug: "nourishing-hair-serum",
     wooId: 223,
-    shopSlug: "face-natural-skin-facisilis",
+    shopSlug: "nourishing-hair-serum",
     category: "Hair Care",
     categorySlug: "hair-care",
-    name: "GlowWithin® Nourishing Hair Serum",
+    name: "GlowWithin™ Nourishing Hair Serum",
     shortName: "Nourishing Hair Serum",
     promise: "Nourish Your Glow.",
     heroLine: "RICE BRAN WATER + AMLA + BHRINGRAJ + BRAHMI",
     hook: "What if your hair-care ritual could begin with four of India's most celebrated hair botanicals?",
     story: [
-      "Beautiful hair is an expression of confidence. GlowWithin® Hair Serum brings together botanical ingredients such as Aloe Vera, Rice Bran Water, Brahmi, Amla, Hibiscus, Bhringraj, Methi and Argan Oil to provide nourishing everyday care for the scalp and hair.",
+      "Beautiful hair is an expression of confidence. GlowWithin™ Hair Serum brings together botanical ingredients such as Aloe Vera, Rice Bran Water, Brahmi, Amla, Hibiscus, Bhringraj, Methi and Argan Oil to provide nourishing everyday care for the scalp and hair.",
       "Designed to support stronger-looking, smoother and shinier hair, it transforms a daily hair-care ritual into a moment of nourishment and confidence.",
     ],
     formulation:
-      "GlowWithin® Hair Serum combines Rice Bran Water that brings a natural, nourishing story to the formulation, complemented by Aloe Vera, Brahmi, Amla, Hibiscus, Bhringraj, Methi, Ginger, Argan Oil, Panthenol and Hydrolyzed Corn Protein.",
+      "GlowWithin™ Hair Serum combines Rice Bran Water that brings a natural, nourishing story to the formulation, complemented by Aloe Vera, Brahmi, Amla, Hibiscus, Bhringraj, Methi, Ginger, Argan Oil, Panthenol and Hydrolyzed Corn Protein.",
     heroIngredientsLabel: "Why these heroes?",
     heroIngredients: [
       { name: "Rice Bran Water", role: "Brings a natural nourishment to hair." },
@@ -85,10 +85,10 @@ export const products: Product[] = [
     transformation: "From worrying about every strand to loving the way her hair feels.",
     closing: "Her hair evolves. Her care evolves with it.",
     image: {
-      src: "https://shop.glowwithin.co.in/wp-content/uploads/2024/04/Gemini_Generated_Image_vrn5pjvrn5pjvrn5.png",
-      alt: "GlowWithin® Nourishing Hair Serum bottle",
-      width: 1088,
-      height: 960,
+      src: "/images/products/nourishing-hair-serum.webp",
+      alt: "GlowWithin™ Nourishing Hair Serum — 30 ml dropper bottle with carton",
+      width: 806,
+      height: 1200,
     },
     banner: "/images/banners/banner-1.webp",
     netQty: "30 ml",
@@ -96,16 +96,16 @@ export const products: Product[] = [
   {
     slug: "brightening-face-serum",
     wooId: 228,
-    shopSlug: "hand-cream-soft-dictum",
+    shopSlug: "brightening-face-serum",
     category: "Face Care",
     categorySlug: "face-care",
-    name: "GlowWithin® Brightening Face Serum",
+    name: "GlowWithin™ Brightening Face Serum",
     shortName: "Brightening Face Serum",
     promise: "Reveal Your Radiance.",
     heroLine: "SNAIL MUCIN + VITAMIN C + NIACINAMIDE + ALPHA ARBUTIN",
     hook: "The celebrated actives. One radiant skin ritual.",
     story: [
-      "Every complexion has its own story - and every woman deserves to feel confident in her own skin. GlowWithin® Face Serum combines Niacinamide, Ethyl Ascorbic Acid, Alpha Arbutin, Hyaluronic Acid, Ferulic Acid, Snail Secretion Filtrate and Allantoin to support brighter, hydrated, smoother and more even-looking skin.",
+      "Every complexion has its own story - and every woman deserves to feel confident in her own skin. GlowWithin™ Face Serum combines Niacinamide, Ethyl Ascorbic Acid, Alpha Arbutin, Hyaluronic Acid, Ferulic Acid, Snail Secretion Filtrate and Allantoin to support brighter, hydrated, smoother and more even-looking skin.",
       "A few drops become a daily ritual of care, helping her reveal the natural radiance she already carries.",
     ],
     formulation:
@@ -124,10 +124,10 @@ export const products: Product[] = [
     transformation: "A few drops become a daily ritual of care, helping her reveal the natural radiance she already carries.",
     closing: "Her radiance evolves. Her glow shines through.",
     image: {
-      src: "https://shop.glowwithin.co.in/wp-content/uploads/2024/04/Gemini_Generated_Image_peg181peg181peg1.png",
-      alt: "GlowWithin® Brightening Face Serum bottle",
-      width: 1024,
-      height: 1024,
+      src: "/images/products/brightening-face-serum.webp",
+      alt: "GlowWithin™ Brightening Face Serum — 30 ml dropper bottle with carton",
+      width: 756,
+      height: 1200,
     },
     banner: "/images/banners/banner-3.webp",
     netQty: "30 ml",
@@ -135,20 +135,20 @@ export const products: Product[] = [
   {
     slug: "gel-based-face-cream",
     wooId: 218,
-    shopSlug: "body-cream-parturient",
+    shopSlug: "gel-based-face-cream",
     category: "Face Care",
     categorySlug: "face-care",
-    name: "GlowWithin® Gel Based Face Cream",
+    name: "GlowWithin™ Gel Based Face Cream",
     shortName: "Gel Based Face Cream",
     promise: "Hydrate Your Glow.",
     heroLine: "HYALURONIC ACID + ALOE VERA + CENTELLA",
     hook: "Lightweight Hydration. Deep Comfort.",
     story: [
-      "Hydration should feel refreshing, effortless and comfortable. GlowWithin® Gel Based Face Cream combines Aloe Vera, Rice Bran Water, Centella Asiatica (CICA), Hyaluronic Acid, Squalane, Glycerin and Ethyl Ascorbic Acid in a lightweight gel-based formulation.",
+      "Hydration should feel refreshing, effortless and comfortable. GlowWithin™ Gel Based Face Cream combines Aloe Vera, Rice Bran Water, Centella Asiatica (CICA), Hyaluronic Acid, Squalane, Glycerin and Ethyl Ascorbic Acid in a lightweight gel-based formulation.",
       "Designed to deliver everyday hydration without a heavy or greasy feel, it leaves skin feeling fresh, soft, comfortable and beautifully cared for.",
     ],
     formulation:
-      "Why should hydration feel heavy? GlowWithin® Gel Face Cream combines Hyaluronic Acid, Aloe Vera and Centella Asiatica with Rice Bran Water, Ethyl Ascorbic Acid, Squalane and Glycerin.",
+      "Why should hydration feel heavy? GlowWithin™ Gel Face Cream combines Hyaluronic Acid, Aloe Vera and Centella Asiatica with Rice Bran Water, Ethyl Ascorbic Acid, Squalane and Glycerin.",
     heroIngredientsLabel: "The hero ingredients",
     heroIngredients: [
       { name: "Hyaluronic Acid", role: "Helps attract and retain moisture for hydrated, plumper-looking skin." },
@@ -166,10 +166,10 @@ export const products: Product[] = [
     },
     closing: "Light hydration. Lasting comfort. Everyday glow.",
     image: {
-      src: "https://shop.glowwithin.co.in/wp-content/uploads/2024/04/Gemini_Generated_Image_bbt2x5bbt2x5bbt2.png",
-      alt: "GlowWithin® Gel Based Face Cream",
-      width: 1088,
-      height: 960,
+      src: "/images/products/gel-based-face-cream.webp",
+      alt: "GlowWithin™ Gel Based Face Cream — 100 ml tube with carton",
+      width: 973,
+      height: 1178,
     },
     banner: "/images/banners/banner-2.webp",
     netQty: "100 ml",
@@ -177,20 +177,20 @@ export const products: Product[] = [
   {
     slug: "intimate-wash",
     wooId: 213,
-    shopSlug: "schampoo-with-olive",
+    shopSlug: "intimate-wash",
     category: "Intimate Care",
     categorySlug: "intimate-care",
-    name: "GlowWithin® Intimate Wash",
+    name: "GlowWithin™ Intimate Wash",
     shortName: "Intimate Wash",
     promise: "Care for Your Glow.",
     heroLine: "LACTIC ACID + CRANBERRY + TEA TREE EXTRACT + INULIN (PRE-BIOTIC)",
     hook: "Gentle Care for Her Most Personal Wellness",
     story: [
-      "Some of a woman's most important wellness needs are also the most personal. GlowWithin® Intimate Wash is a gentle, pH-conscious daily cleansing formulation with Lactic Acid, Aloe Vera, Cranberry Extract, Niacinamide, D-Panthenol, Inulin and Tea Tree Extract.",
+      "Some of a woman's most important wellness needs are also the most personal. GlowWithin™ Intimate Wash is a gentle, pH-conscious daily cleansing formulation with Lactic Acid, Aloe Vera, Cranberry Extract, Niacinamide, D-Panthenol, Inulin and Tea Tree Extract.",
       "Created to support freshness, comfort and intimate hygiene, it brings thoughtful care to an essential part of her everyday wellness routine.",
     ],
     formulation:
-      "Because intimate care deserves its own ritual. GlowWithin® Intimate Wash combines Lactic Acid, Aloe Vera, Cranberry Extract, Niacinamide, D-Panthenol, Inulin, Tea Tree Extract, Glycerin and Urea.",
+      "Because intimate care deserves its own ritual. GlowWithin™ Intimate Wash combines Lactic Acid, Aloe Vera, Cranberry Extract, Niacinamide, D-Panthenol, Inulin, Tea Tree Extract, Glycerin and Urea.",
     heroIngredientsLabel: "The hero ingredients",
     heroIngredients: [
       { name: "Lactic Acid", role: "Helps support the naturally acidic environment of intimate skin." },
@@ -210,10 +210,10 @@ export const products: Product[] = [
     },
     closing: "Because feeling fresh and comfortable is part of feeling confident.",
     image: {
-      src: "https://shop.glowwithin.co.in/wp-content/uploads/2024/04/Gemini_Generated_Image_cqq2p5cqq2p5cqq2.png",
-      alt: "GlowWithin® Intimate Wash",
-      width: 1088,
-      height: 960,
+      src: "/images/products/intimate-wash.webp",
+      alt: "GlowWithin™ Gentle Intimate Wash — 100 ml foam pump with carton",
+      width: 806,
+      height: 998,
     },
     banner: "/images/banners/banner-5.webp",
     netQty: "100 ml",
@@ -223,7 +223,7 @@ export const products: Product[] = [
 export const productsIntro = {
   heading: "Our Products",
   subheading: "Nature's Heroes. Thoughtful Care. Her Everyday Glow.",
-  text: "Every GlowWithin® formulation begins with a purpose—and every purpose has its hero. We bring together carefully selected ingredients with modern formulation science to create everyday wellness solutions that help her nourish, reveal, hydrate and care for her glow.",
+  text: "Every GlowWithin™ formulation begins with a purpose—and every purpose has its hero. We bring together carefully selected ingredients with modern formulation science to create everyday wellness solutions that help her nourish, reveal, hydrate and care for her glow.",
 };
 
 export function getProduct(slug: string): Product | undefined {
