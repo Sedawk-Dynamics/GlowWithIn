@@ -215,7 +215,7 @@ export default async function HomePage() {
           <Signature line={brandStory.signature} signOff="GlowWithin™ · For Her, Forever." />
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a href={shopRoutes.catalogue} className="gw-btn">
-              Shop GlowWithin<sup className="gw-tm">™</sup>
+              <span>Shop GlowWithin<sup className="gw-tm">™</sup></span>
             </a>
             <Link href={routes.contact} className="gw-btn gw-btn--outline">
               Contact us

@@ -52,7 +52,7 @@ export default function WhyPage() {
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a href={shopRoutes.catalogue} className="gw-btn">
-              Shop GlowWithin<sup className="gw-tm">™</sup>
+              <span>Shop GlowWithin<sup className="gw-tm">™</sup></span>
             </a>
             <Link href={routes.products} className="gw-btn gw-btn--outline">
               Our products
