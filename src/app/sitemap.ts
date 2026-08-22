@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [routes.faq, 0.5, "monthly"],
     [routes.privacy, 0.2, "yearly"],
     [routes.terms, 0.2, "yearly"],
+    [routes.returns, 0.4, "yearly"],
   ];
   return [
     ...statics.map(([path, priority, changeFrequency]) => ({ url: `${APEX_ORIGIN}${path}`, lastModified: now, priority, changeFrequency })),

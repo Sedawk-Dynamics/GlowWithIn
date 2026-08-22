@@ -39,7 +39,11 @@ const faqs: { q: string; a: React.ReactNode }[] = [
         <a href={shopRoutes.catalogue} className="gw-link">
           shop.glowwithin.co.in
         </a>
-        . Cart, checkout, payment and your account all live there.
+        . Cart, checkout, payment and your account all live there. Shipping is free on all orders — see our{" "}
+        <Link href={routes.returns} className="gw-link">
+          shipping, returns & refunds policy
+        </Link>
+        .
       </>
     ),
   },

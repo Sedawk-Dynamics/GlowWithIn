@@ -51,6 +51,7 @@ export const routes = {
   contact: "/contact",
   privacy: "/privacy-policy",
   terms: "/terms-conditions",
+  returns: "/return-policy",
   faq: "/faq",
 } as const;
 
@@ -127,6 +128,7 @@ export const usefulNav: NavItem[] = [
 export const importantNav: NavItem[] = [
   { label: "Privacy & Policy", href: routes.privacy },
   { label: "Terms & Conditions", href: routes.terms },
+  { label: "Shipping & Returns", href: routes.returns },
   { label: "FAQ", href: routes.faq },
 ];
 
@@ -149,7 +151,7 @@ export const contact = {
     "Green Hills Road, Moosapet,",
     "Hyderabad – 500018",
   ],
-  hours: "Monday – Saturday | 10:00 AM – 6:00 PM",
+  hours: "Monday – Saturday | 9:00 AM – 6:00 PM",
   /** Social profiles. The live site links these to "#" — replace when the handles are confirmed. */
   social: {
     facebook: "#",
