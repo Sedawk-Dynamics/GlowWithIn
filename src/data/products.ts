@@ -41,8 +41,8 @@ export interface Product {
   heroClosing?: string;
   experienceLabel: string;
   experience: string[];
-  transformationLabel: string;
-  transformation: string;
+  transformationLabel?: string;
+  transformation?: string;
   /** Optional extra block ("Why GEL?", "Why make it part of her routine?"). */
   extra?: { title: string; text?: string; bullets?: string[] };
   /** Closing line under the product. */
@@ -120,8 +120,6 @@ export const products: Product[] = [
     ],
     experienceLabel: "Why she'll love it",
     experience: ["Deep hydration", "Smoother-looking texture", "Radiance", "Even-looking skin"],
-    transformationLabel: "The emotional transformation",
-    transformation: "A few drops become a daily ritual of care, helping her reveal the natural radiance she already carries.",
     closing: "Her radiance evolves. Her glow shines through.",
     image: {
       src: "/images/products/brightening-face-serum.webp",
@@ -156,7 +154,7 @@ export const products: Product[] = [
       { name: "Centella Asiatica", role: "Known for its soothing and skin-conditioning properties." },
       { name: "Squalane", role: "Helps maintain skin softness with a lightweight skin feel." },
     ],
-    experienceLabel: "Light hydration. Lasting comfort. Everyday glow.",
+    experienceLabel: "What she experiences",
     experience: ["Fresh", "Lightweight", "Non-greasy feel", "Comfortable everyday hydration", "Deep penetration"],
     transformationLabel: "The emotional transformation",
     transformation: "From heavy skincare to a fresh, weightless feeling she can enjoy every day.",

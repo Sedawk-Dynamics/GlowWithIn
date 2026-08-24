@@ -178,8 +178,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </ul>
           </div>
           <div>
-            <p className="gw-eyebrow">{p.transformationLabel}</p>
-            <p className="m-0 font-serif text-[clamp(24px,2.8vw,34px)] leading-snug text-ink">{p.transformation}</p>
+            {p.transformation && (
+              <>
+                <p className="gw-eyebrow">{p.transformationLabel}</p>
+                <p className="m-0 font-serif text-[clamp(24px,2.8vw,34px)] leading-snug text-ink">{p.transformation}</p>
+              </>
+            )}
             {p.closing && <p className="mt-6 mb-0 text-[13px] font-semibold uppercase tracking-[0.2em] text-mocha">{p.closing}</p>}
           </div>
         </div>

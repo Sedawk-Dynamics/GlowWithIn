@@ -6,7 +6,7 @@ import { ProductCard } from "@/components/ui/ProductCard";
 import { SectionHeading, Signature } from "@/components/ui/Section";
 import { Icon, type IconName } from "@/components/ui/Icons";
 import { products, productsIntro } from "@/data/products";
-import { brandStory, collectionLine, founderNote, whyChooseUs, commitment } from "@/data/brand";
+import { brandStory, collectionLine, founderNote, whyChooseUs } from "@/data/brand";
 import { getLiveProductMap } from "@/lib/woo";
 import { routes, shopRoutes, categoryNav } from "@/lib/links";
 
@@ -55,13 +55,7 @@ export default async function HomePage() {
             <p className="gw-lead m-0">{brandStory.paragraphs[0].replace("There is something beautiful within every woman. ", "")}</p>
           </div>
           <div className="gw-prose lg:col-span-7 lg:pl-8">
-            {brandStory.paragraphs.slice(1).map((p) => (
-              <p key={p} className="text-[16px] leading-7 text-ink">
-                {tm(p)}
-              </p>
-            ))}
-            <p className="mt-6 mb-0 font-serif text-[28px] leading-tight text-ink">{brandStory.signature}</p>
-            <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-mocha">{tm(brandStory.signOff)}</p>
+            <p className="text-[16px] leading-7 text-ink">{tm(brandStory.paragraphs[3])}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href={routes.about} className="gw-btn">
                 About us
@@ -85,7 +79,7 @@ export default async function HomePage() {
           <ul className="mt-14 grid list-none grid-cols-1 gap-x-8 gap-y-14 p-0 sm:grid-cols-2 xl:grid-cols-4">
             {products.map((p, i) => (
               <li key={p.slug}>
-                <ProductCard product={p} live={live.get(p.wooId)} priority={i < 2} />
+                <ProductCard product={p} live={live.get(p.wooId)} priority={i < 2} showPromise={false} />
                 <p className="mt-4 mb-0 text-center text-[12px] font-semibold uppercase tracking-[0.12em] text-mocha">
                   Hero ingredients: <span className="text-ink">{p.heroLine}</span>
                 </p>
@@ -136,7 +130,7 @@ export default async function HomePage() {
             ))}
           </ol>
           <div className="mt-12">
-            <Signature line={collectionLine.evolves} signOff={collectionLine.signOff} />
+            <Signature line={collectionLine.evolves} />
           </div>
         </div>
       </section>
@@ -171,9 +165,9 @@ export default async function HomePage() {
       <section className="gw-section bg-cream" aria-labelledby="founder-heading">
         <div className="gw-container grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <p className="gw-eyebrow">A Note from the Founder</p>
+            <p className="gw-eyebrow">From our founder</p>
             <h2 id="founder-heading" className="gw-h2">
-              {founderNote.pullQuote}
+              {founderNote.heading}
             </h2>
             <hr className="gw-rule" />
             <p className="m-0 font-serif text-[22px] text-ink">{founderNote.name}</p>
@@ -185,7 +179,6 @@ export default async function HomePage() {
           </div>
           <div className="gw-prose lg:col-span-8 lg:pl-10">
             <p className="text-[16px] leading-7 text-ink">{tm(founderNote.paragraphs[2])}</p>
-            <p className="text-[16px] leading-7 text-ink">{tm(founderNote.paragraphs[3])}</p>
             <Link href={routes.founder} className="gw-link mt-2 inline-block text-[14px]">
               Read the full note
             </Link>
@@ -193,23 +186,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* 8 · Our Commitment */}
-      <section className="gw-section bg-white" aria-labelledby="commitment-heading">
-        <div className="gw-container">
-          <SectionHeading eyebrow={commitment.heading} title={<span id="commitment-heading">{commitment.intro.replace(":", "")}</span>} />
-          <ol className="mt-12 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-5">
-            {commitment.items.map((item) => (
-              <li key={item.n} className="gw-card">
-                <span className="gw-num">{item.n}</span>
-                <h3 className="mt-3 mb-2 font-sans text-[17px] font-semibold leading-6 text-ink">{item.title}</h3>
-                <p className="m-0 text-[14px] leading-6 text-ink/80">{item.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* 9 · Closing CTA */}
+      {/* 8 · Closing CTA */}
       <section className="gw-section bg-cream" aria-label="Shop GlowWithin">
         <div className="gw-container">
           <Signature line={brandStory.signature} signOff="GlowWithin™ · For Her, Forever." />

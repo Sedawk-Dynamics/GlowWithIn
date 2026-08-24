@@ -84,52 +84,27 @@ export default async function ProductsPage() {
                   <p className="mt-1 mb-0 font-serif text-[clamp(20px,2.2vw,26px)] leading-snug text-ink">{p.heroLine}</p>
                   <hr className="gw-rule" />
                   <p className="m-0 font-serif text-[24px] leading-snug text-ink">{p.hook}</p>
-                  <div className="gw-prose mt-5">
-                    {p.story.map((s) => (
-                      <p key={s} className="text-[16px] leading-7 text-ink">
-                        {tm(s)}
-                      </p>
-                    ))}
-                    <p className="text-[16px] leading-7 text-ink">{tm(p.formulation)}</p>
-                  </div>
+                  <p className="mt-5 mb-0 text-[16px] leading-7 text-ink">{tm(p.story[0])}</p>
 
-                  {p.extra && (
-                    <div className="mt-6 border-l-4 border-peach bg-white/70 px-5 py-4">
-                      <p className="m-0 font-semibold text-ink">{p.extra.title}</p>
-                      {p.extra.text && <p className="mt-1 mb-0 text-[15px] leading-6 text-ink/85">{p.extra.text}</p>}
-                    </div>
-                  )}
-
-                  <h3 className="mt-8 mb-4 font-sans text-[15px] font-semibold uppercase tracking-[0.12em] text-ink">{p.heroIngredientsLabel}</h3>
-                  <dl className="m-0 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+                  <h3 className="mt-8 mb-3 font-sans text-[13px] font-semibold uppercase tracking-[0.14em] text-mocha">{p.heroIngredientsLabel}</h3>
+                  <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
                     {p.heroIngredients.map((h) => (
-                      <div key={h.name} className="border-t border-ink/10 pt-3">
-                        <dt className="m-0 text-[13px] font-semibold uppercase tracking-[0.12em] text-mocha">{h.name}</dt>
-                        <dd className="m-0 mt-1 text-[15px] leading-6 text-ink/85">{h.role}</dd>
-                      </div>
+                      <li key={h.name} className="gw-chip normal-case tracking-normal">
+                        {h.name}
+                      </li>
                     ))}
-                  </dl>
-                  {p.heroClosing && <p className="mt-5 mb-0 text-[15px] leading-7 text-ink/85">{p.heroClosing}</p>}
+                  </ul>
 
-                  <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-                    <div>
-                      <h3 className="mt-0 mb-3 font-sans text-[15px] font-semibold uppercase tracking-[0.12em] text-ink">{p.experienceLabel}</h3>
-                      <ul className="gw-bullets">
-                        {p.experience.map((e) => (
-                          <li key={e}>{e}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="mt-0 mb-3 font-sans text-[15px] font-semibold uppercase tracking-[0.12em] text-ink">{p.transformationLabel}</h3>
-                      <p className="m-0 font-serif text-[22px] leading-snug text-ink">{p.transformation}</p>
-                    </div>
-                  </div>
+                  <h3 className="mt-8 mb-3 font-sans text-[13px] font-semibold uppercase tracking-[0.14em] text-mocha">{p.experienceLabel}</h3>
+                  <ul className="gw-bullets grid grid-cols-1 sm:grid-cols-2">
+                    {p.experience.map((e) => (
+                      <li key={e}>{e}</li>
+                    ))}
+                  </ul>
 
-                  {p.closing && <p className="mt-8 mb-0 text-[13px] font-semibold uppercase tracking-[0.2em] text-mocha">{p.closing}</p>}
-                  <div className="mt-6">
-                    <Link href={routes.product(p.slug)} className="gw-link text-[14px]">
-                      Full product page
+                  <div className="mt-8">
+                    <Link href={routes.product(p.slug)} className="gw-btn gw-btn--outline">
+                      Read the full story
                     </Link>
                   </div>
                 </div>
@@ -141,14 +116,7 @@ export default async function ProductsPage() {
 
       <section className="gw-section gw-section--blush text-ink" aria-label="The collection">
         <div className="gw-container">
-          <div className="mx-auto max-w-[820px] text-center">
-            <p className="gw-eyebrow">{collectionLine.verbs}</p>
-            <p className="m-0 font-serif text-[clamp(28px,3.6vw,44px)] leading-tight text-ink">{collectionLine.heading}</p>
-            <p className="mt-6 mb-0 text-[16px] leading-7 text-ink/85">{tm(collectionLine.closing)}</p>
-          </div>
-          <div className="mt-10">
-            <Signature line={collectionLine.evolves} signOff={collectionLine.signOff} />
-          </div>
+          <Signature line={collectionLine.evolves} signOff={collectionLine.signOff} />
           <div className="mt-8 flex justify-center">
             <a href={shopRoutes.catalogue} className="gw-btn">
               Shop the collection

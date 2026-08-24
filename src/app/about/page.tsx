@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { tm } from "@/components/ui/Tm";
 import Link from "next/link";
-import { PageHero, SectionHeading, Signature } from "@/components/ui/Section";
-import { aboutBrands, brandStory, collectionLine, commitment, founderNote, mission, values, vision } from "@/data/brand";
+import { PageHero, SectionHeading } from "@/components/ui/Section";
+import { aboutBrands, brandStory, commitment, founderNote, mission, values, vision, whyChooseUs } from "@/data/brand";
 import { products } from "@/data/products";
 import { routes, shopRoutes } from "@/lib/links";
 
@@ -27,11 +27,10 @@ export default function AboutPage() {
               GlowWithin<sup className="gw-tm">™</sup> <span className="gw-gradient-text">Brand Story</span>
             </h2>
             <hr className="gw-rule" />
-            <p className="m-0 font-serif text-[24px] leading-snug text-ink">{brandStory.signature}</p>
-            <p className="mt-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-mocha">{tm(brandStory.signOff)}</p>
+            <p className="m-0 text-[15px] leading-7 text-ink/80">Every day brings new moments, new experiences and new expressions of who she is.</p>
           </div>
           <div className="gw-prose lg:col-span-8 lg:pl-10">
-            {brandStory.paragraphs.slice(1).map((p) => (
+            {brandStory.paragraphs.slice(2, 3).map((p) => (
               <p key={p} className="text-[17px] leading-8 text-ink">
                 {tm(p)}
               </p>
@@ -89,18 +88,13 @@ export default function AboutPage() {
                 <p className="gw-num m-0">0{i + 1}</p>
                 <h3 className="mt-3 mb-1 font-serif text-[22px] leading-tight text-ink">{p.shortName}</h3>
                 <p className="m-0 text-[14px] font-semibold uppercase tracking-[0.12em] text-mocha">{p.promise}</p>
-                <p className="mt-3 mb-4 text-[14px] leading-6 text-ink/80">{tm(p.story[0])}</p>
+                <p className="mt-3 mb-4 text-[14px] leading-6 text-ink/80">{p.heroLine}</p>
                 <Link href={routes.product(p.slug)} className="gw-link text-[14px]">
                   Discover
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="mx-auto mt-12 max-w-[820px] text-center">
-            <p className="m-0 font-serif text-[28px] text-ink">{collectionLine.heading}</p>
-            <p className="mt-2 mb-6 text-[14px] font-semibold uppercase tracking-[0.2em] text-mocha">{collectionLine.verbs}</p>
-            <p className="m-0 text-[16px] leading-7 text-ink/85">{tm(collectionLine.closing)}</p>
-          </div>
         </div>
       </section>
 
@@ -152,9 +146,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="gw-section bg-white" aria-label="Shop GlowWithin">
-        <div className="gw-container">
-          <Signature line={collectionLine.evolves} signOff={collectionLine.signOff} />
+      <section className="gw-section bg-white" aria-labelledby="special-heading">
+        <div className="gw-container text-center">
+          <h2 id="special-heading" className="gw-h2">
+            {tm(whyChooseUs.special.heading)}
+          </h2>
+          <hr className="gw-rule gw-rule--center" />
+          <div className="mx-auto max-w-[720px]">
+            {whyChooseUs.special.lines.map((l) => (
+              <p key={l} className="mb-1 font-serif text-[clamp(22px,2.6vw,30px)] text-ink/60">
+                {l}
+              </p>
+            ))}
+            <p className="mt-6 mb-2 font-serif text-[clamp(30px,4vw,48px)] leading-tight text-ink">{whyChooseUs.special.answer}</p>
+            <p className="m-0 text-[15px] font-semibold uppercase tracking-[0.16em] text-mocha">{whyChooseUs.special.her}</p>
+          </div>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link href={routes.products} className="gw-btn gw-btn--outline">
               Our products

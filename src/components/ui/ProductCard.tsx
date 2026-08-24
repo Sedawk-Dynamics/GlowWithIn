@@ -10,7 +10,7 @@ import { addToCartUrl, routes, shopRoutes } from "@/lib/links";
  * Product card — the pack shot is rendered `object-fit: contain` inside a
  * square box (`.gw-packshot`) so the bottle is always shown whole.
  */
-export function ProductCard({ product, live, priority = false }: { product: Product; live?: WooProduct; priority?: boolean }) {
+export function ProductCard({ product, live, priority = false, showPromise = true }: { product: Product; live?: WooProduct; priority?: boolean; showPromise?: boolean }) {
   const price = live ? formatPrice(live.prices) : null;
   const regular = live && live.on_sale ? formatPrice(live.prices, live.prices.regular_price) : null;
   const inStock = live ? live.is_in_stock : true;
@@ -37,7 +37,7 @@ export function ProductCard({ product, live, priority = false }: { product: Prod
             {tm(product.shortName)}
           </Link>
         </h3>
-        <p className="mt-1 mb-0 font-sans text-[15px] text-ink/80">{product.promise}</p>
+        {showPromise && <p className="mt-1 mb-0 font-sans text-[15px] text-ink/80">{product.promise}</p>}
         <p className="mt-3 mb-0 font-sans text-[18px] text-peach">
           {price ? (
             <>

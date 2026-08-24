@@ -310,10 +310,6 @@
   /* ---------- header / footer link fixes for the apex ---------- */
   /* The theme's JS toggles a login modal; on this site the icon is a plain link. */
   .mfn-header-login { display: none !important; }
-  /* Mobile header: the live site used the theme's demo SVG (110×48) here; the
-     real GlowWithin logo is near-square, so cap its height to keep the header
-     at the same 68px. */
-  .gw-mobile-logo img { max-height: 48px; width: auto; }
   /* Keep the BeTheme side-slide drawer above page content. */
   .mfn-header-tmpl-menu-sidebar { z-index: 1002; }
   /* Header is `absolute` on desktop; make sure page content starts below it. */

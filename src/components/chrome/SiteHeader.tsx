@@ -18,6 +18,8 @@ import { HeaderBehaviour } from "./HeaderBehaviour";
  */
 
 const LOGO = "/images/brand/glowwithin-logo.png";
+/** The shop's mobile header uses the square site-icon crop of the logo. */
+const LOGO_MOBILE = "/images/brand/glowwithin-logo-square.png";
 const ICON_PHONE = "/images/brand/header-icon1.svg";
 const ICON_USER = "/images/brand/header-icon2.svg";
 const ICON_CART = "/images/brand/header-icon3.svg";
@@ -127,9 +129,9 @@ export function SiteHeader() {
                   <div className="mcb-wrap-background-overlay" />
                   <div className="column mcb-column mcb-item-4dmiazhwm one laptop-one tablet-one mobile-one column_header_logo mfn-item-custom-width vb-item">
                     <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-4dmiazhwm mcb-item-header_logo-inner">
-                      <a className="logo-wrapper gw-mobile-logo" href={routes.home} aria-label="GlowWithin — home">
+                      <a className="logo-wrapper" href={routes.home} aria-label="GlowWithin — home">
                         {/* eslint-disable-next-line @next/next/no-img-element -- theme-sized logo */}
-                        <img src={LOGO} alt="GlowWithin™ — For Her, Forever" width={357} height={315} />
+                        <img fetchPriority="high" src={LOGO_MOBILE} alt="GlowWithin™ — For Her, Forever" width={512} height={512} />
                       </a>
                     </div>
                   </div>
@@ -266,8 +268,8 @@ export function SiteHeader() {
                       <HeaderIcon href={contact.phoneHref} icon={ICON_PHONE} alt={`Call ${contact.phone}`} label={contact.phone} extraClass="mfn-header-link" />
                     </div>
                   </div>
-                  <div className="column mcb-column mcb-item-s9xzkk52d one laptop-one tablet-one mobile-one column_header_icon mfn-item-inline vb-item">
-                    <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-s9xzkk52d mcb-item-header_icon-inner">
+                  <div className="column mcb-column mcb-item-pndn5ge0a one laptop-one tablet-one mobile-one column_header_icon mfn-item-inline vb-item">
+                    <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-pndn5ge0a mcb-item-header_icon-inner">
                       <HeaderIcon href={shopRoutes.account} icon={ICON_USER} alt="Login / My account" label="Login" labelClass="desc-wrapper" extraClass="mfn-header-account-link is-boxed" />
                     </div>
                   </div>

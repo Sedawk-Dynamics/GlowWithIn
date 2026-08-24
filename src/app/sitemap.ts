@@ -9,7 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     [routes.products, 0.9, "weekly"],
     [routes.about, 0.8, "monthly"],
     [routes.services, 0.7, "monthly"],
-    [routes.whyGlowWithin, 0.6, "monthly"],
     [routes.contact, 0.6, "yearly"],
     [routes.faq, 0.5, "monthly"],
     [routes.privacy, 0.2, "yearly"],

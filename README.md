@@ -14,7 +14,7 @@ npm run build                  # lint + types + static generation
 
 | glowwithin.co.in (this app)                                   | shop.glowwithin.co.in (WordPress + WooCommerce) |
 | ------------------------------------------------------------- | ----------------------------------------------- |
-| `/` home, `/about`, `/products`, `/products/<slug>`, `/services`, `/why-glowwithin`, `/contact`, `/faq`, `/privacy-policy`, `/terms-conditions` | `/shop/`, `/product/<slug>/`, `/product-category/<slug>/`, `/cart/`, `/checkout/`, `/my-account/…` |
+| `/` home, `/about`, `/products`, `/products/<slug>`, `/services`, `/contact`, `/faq`, `/privacy-policy`, `/terms-conditions`, `/return-policy` | `/shop/`, `/product/<slug>/`, `/product-category/<slug>/`, `/cart/`, `/checkout/`, `/my-account/…` |
 
 Every URL resolves through [`src/lib/links.ts`](src/lib/links.ts) — nothing else hardcodes a link.
 Cross-domain links are plain `<a href>` (the cart cookie belongs to the shop origin).

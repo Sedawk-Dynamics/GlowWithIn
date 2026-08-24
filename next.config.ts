@@ -49,6 +49,7 @@ const nextConfig: NextConfig = {
       toShop("/feed"),
       // retired theme demo pages
       { source: "/courses", destination: "/", permanent: true },
+      { source: "/why-glowwithin", destination: "/#why-heading", permanent: true },
       { source: "/sales", destination: "/products", permanent: true },
     ];
   },

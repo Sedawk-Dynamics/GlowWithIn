@@ -47,7 +47,6 @@ export const routes = {
   products: "/products",
   product: (slug: string) => `/products/${slug}`,
   services: "/services",
-  whyGlowWithin: "/why-glowwithin",
   contact: "/contact",
   privacy: "/privacy-policy",
   terms: "/terms-conditions",
