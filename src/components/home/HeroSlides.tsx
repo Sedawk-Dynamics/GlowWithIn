@@ -102,16 +102,6 @@ export function HeroSlides() {
         ))}
       </div>
 
-      <button type="button" className="gw-hero__arrow gw-hero__arrow--prev" aria-label="Previous slide" onClick={() => goTo(index - 1)}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M15 18l-6-6 6-6" />
-        </svg>
-      </button>
-      <button type="button" className="gw-hero__arrow gw-hero__arrow--next" aria-label="Next slide" onClick={() => goTo(index + 1)}>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M9 6l6 6-6 6" />
-        </svg>
-      </button>
 
       <div className="gw-hero__dots" role="tablist" aria-label="Choose slide">
         {heroSlides.map((slide, i) => (

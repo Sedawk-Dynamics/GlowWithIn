@@ -255,18 +255,7 @@
     transition: transform .2s ease, background-color .2s ease;
   }
   .gw-hero__dot[aria-current="true"] { background: var(--color-ink); transform: scale(1.25); }
-  .gw-hero__arrow {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    width: 44px; height: 44px; border-radius: 999px;
-    border: 0; background: rgba(255, 255, 255, .7); color: var(--color-ink);
-    display: none; align-items: center; justify-content: center;
-    cursor: pointer; transition: background-color .2s ease;
-  }
-  .gw-hero__arrow:hover { background: #fff; }
-  .gw-hero__arrow--prev { left: 16px; }
-  .gw-hero__arrow--next { right: 16px; }
   @media (min-width: 768px) {
-    .gw-hero__arrow { display: inline-flex; }
     .gw-hero__dots { bottom: 22px; }
     .gw-hero__dot { width: 10px; height: 10px; }
   }
