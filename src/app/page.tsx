@@ -55,7 +55,7 @@ export default async function HomePage() {
             <p className="gw-lead m-0">{brandStory.paragraphs[0].replace("There is something beautiful within every woman. ", "")}</p>
           </div>
           <div className="gw-prose lg:col-span-7 lg:pl-8">
-            <p className="text-[16px] leading-7 text-ink">{tm(brandStory.paragraphs[3])}</p>
+            <p className="text-[16px] leading-7 text-pink-50">{tm(brandStory.paragraphs[3])}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href={routes.about} className="gw-btn">
                 About us
