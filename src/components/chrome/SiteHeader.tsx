@@ -18,8 +18,12 @@ import { HeaderBehaviour } from "./HeaderBehaviour";
  */
 
 const LOGO = "/images/brand/glowwithin-logo.png";
-/** The shop's mobile header uses the square site-icon crop of the logo. */
-const LOGO_MOBILE = "/images/brand/glowwithin-logo-square.png";
+/**
+ * Mobile uses the same full logo as desktop. (The shop's header builder points
+ * at WordPress's square site-icon crop, cropped-Glowwithin-logo1.png, which
+ * slices the G and the final n off the wordmark — do not copy that here.)
+ */
+const LOGO_MOBILE = LOGO;
 const ICON_PHONE = "/images/brand/header-icon1.svg";
 const ICON_USER = "/images/brand/header-icon2.svg";
 const ICON_CART = "/images/brand/header-icon3.svg";
@@ -131,7 +135,7 @@ export function SiteHeader() {
                     <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-4dmiazhwm mcb-item-header_logo-inner">
                       <a className="logo-wrapper" href={routes.home} aria-label="GlowWithin — home">
                         {/* eslint-disable-next-line @next/next/no-img-element -- theme-sized logo */}
-                        <img fetchPriority="high" src={LOGO_MOBILE} alt="GlowWithin™ — For Her, Forever" width={512} height={512} />
+                        <img fetchPriority="high" src={LOGO_MOBILE} alt="GlowWithin™ — For Her, Forever" width={357} height={315} />
                       </a>
                     </div>
                   </div>
