@@ -71,7 +71,7 @@ const organizationJsonLd = {
     addressCountry: "IN",
   },
   founder: { "@type": "Person", name: "Srilatha" },
-  sameAs: [SHOP_ORIGIN],
+  sameAs: [SHOP_ORIGIN, ...Object.values(contact.social)],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

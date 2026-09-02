@@ -122,9 +122,11 @@ export function SiteFooter() {
                     <div className="desc">Follow us</div>
                   </div>
                 </div>
-                <SocialIcon cls="mcb-item-80fbc77ec" icon="icon-facebook" href={contact.social.facebook} label="Facebook" />
-                <SocialIcon cls="mcb-item-b80e6146b" icon="icon-instagram" href={contact.social.instagram} label="Instagram" />
-                <SocialIcon cls="mcb-item-c0709ff5c" icon="icon-pinterest" href={contact.social.pinterest} label="Pinterest" />
+                {/* Same four accounts, order and builder ids as the shop footer. */}
+                <SocialIcon cls="mcb-item-b80e6146b" icon="icon-instagram" href={contact.social.instagram} label="GlowWithin on Instagram" />
+                <SocialIcon cls="mcb-item-3shgccr" icon="icon-facebook" href={contact.social.facebook} label="GlowWithin on Facebook" />
+                <SocialIcon cls="mcb-item-c0709ff5c" icon="icon-linkedin" href={contact.social.linkedin} label="GlowWithin on LinkedIn" />
+                <SocialIcon cls="mcb-item-6fqy1b1b" icon="icon-x-twitter" href={contact.social.x} label="GlowWithin on X" />
               </Wrap>
               <div className="column mcb-column mcb-item-44de13048 one-third laptop-one-third tablet-three-fifth mobile-one column_icon_box_2 vb-item">
                 <div className="mcb-column-inner mfn-module-wrapper mcb-column-inner-44de13048 mcb-item-icon_box_2-inner">

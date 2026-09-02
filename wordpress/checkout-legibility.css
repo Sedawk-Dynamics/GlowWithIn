@@ -1,0 +1,44 @@
+
+.woocommerce-checkout .woocommerce-checkout-review-order,
+.woocommerce-checkout .woocommerce-checkout-review-order p,
+.woocommerce-checkout .woocommerce-checkout-review-order th,
+.woocommerce-checkout .woocommerce-checkout-review-order td,
+.woocommerce-checkout .woocommerce-checkout-review-order label,
+.woocommerce-checkout .woocommerce-checkout-review-order small,
+.woocommerce-checkout .woocommerce-checkout-review-order bdi,
+.woocommerce-checkout .woocommerce-checkout-review-order .woocommerce-Price-amount,
+.woocommerce-checkout .woocommerce-checkout-review-order .woocommerce-Price-currencySymbol,
+.woocommerce-checkout .woocommerce-checkout-review-order .includes_tax,
+.woocommerce-checkout #payment,
+.woocommerce-checkout #payment li,
+.woocommerce-checkout #payment label,
+.woocommerce-checkout #payment .payment_box,
+.woocommerce-checkout #payment .payment_box p {
+  color: #FFFFFF !important;
+}
+
+/* order total keeps the peach accent, now readable on the dark box */
+.woocommerce-checkout .woocommerce-checkout-review-order tr.order-total .woocommerce-Price-amount,
+.woocommerce-checkout .woocommerce-checkout-review-order tr.order-total bdi,
+.woocommerce-checkout .woocommerce-checkout-review-order tr.order-total .woocommerce-Price-currencySymbol {
+  color: #FDB37E !important;
+}
+
+/* the "× 1" quantity chip sits on peach, so it stays dark */
+.woocommerce-checkout .woocommerce-checkout-review-order .product-quantity {
+  color: #34252F !important;
+}
+
+/* peach button needs dark text (see note about the colour animation above) */
+.woocommerce-checkout #place_order,
+.woocommerce-checkout #place_order:hover,
+.woocommerce-checkout #place_order:focus {
+  color: #34252F !important;
+  -webkit-text-fill-color: #34252F !important;
+}
+
+/* "Click here to enter your code" was peach on white — too pale */
+.woocommerce-checkout .showcoupon,
+.woocommerce-checkout .woocommerce-form-coupon-toggle a {
+  color: #B23A48 !important;
+}

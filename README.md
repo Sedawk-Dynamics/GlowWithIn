@@ -66,6 +66,22 @@ Vercel, `main` → production. Set the env vars from `.env.example`
 (Production). Then point `glowwithin.co.in` / `www` at Vercel while
 `shop.glowwithin.co.in` keeps pointing at the WordPress host.
 
+## WordPress-side CSS
+
+[`wordpress/checkout-legibility.css`](wordpress/checkout-legibility.css) fixes
+the shop checkout, where the BeTheme page builder paints the order-summary box
+#34252F but leaves most of the text at the dark body colour (invisible). Paste
+it into BeTheme → Theme Options → Custom CSS. It is not used by this Next.js
+app.
+
+### COD handling fee
+
+[`wordpress/glowwithin-cod-fee.php`](wordpress/glowwithin-cod-fee.php) adds the
+non-refundable ₹100 Cash-on-Delivery handling fee, shows the notice under the
+COD option and refreshes the totals when the payment method changes. Upload it
+to `wp-content/mu-plugins/` on the shop — **not** the theme functions.php (the
+site runs the parent BeTheme, so a theme update would erase it).
+
 ## Still to do in wp-admin (cannot be done through the MCP connector)
 
 1. ~~Product slugs~~ — renamed on 2026-08-21 (`nourishing-hair-serum`,
@@ -83,5 +99,7 @@ Vercel, `main` → production. Set the env vars from `.env.example`
 5. **Webhook** — WooCommerce → Settings → Advanced → Webhooks:
    `product.updated` → `https://glowwithin.co.in/api/revalidate`, secret =
    `WOO_WEBHOOK_SECRET`.
-6. **Social profile URLs** (`contact.social` in `src/lib/links.ts`) — the live
-   site links them to `#`.
+6. ~~Social profile URLs~~ — Instagram / Facebook / LinkedIn / X wired up on
+   2026-08-22, matching the shop footer.
+7. **Footer email on the shop** still reads `info@shop.glowwithin.co.in` (a
+   migration search-replace artefact) — should be `info@glowwithin.co.in`.

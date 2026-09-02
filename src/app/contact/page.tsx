@@ -84,22 +84,19 @@ export default function ContactPage() {
               </a>
             </div>
             <p className="mt-8 mb-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-mocha">Follow us</p>
-            <ul className="m-0 flex list-none gap-5 p-0 text-[14px] font-semibold">
-              <li>
-                <a href={contact.social.facebook} className="gw-link">
-                  Facebook
-                </a>
-              </li>
-              <li>
-                <a href={contact.social.instagram} className="gw-link">
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a href={contact.social.pinterest} className="gw-link">
-                  Pinterest
-                </a>
-              </li>
+            <ul className="m-0 flex list-none flex-wrap gap-5 p-0 text-[14px] font-semibold">
+              {[
+                ["Instagram", contact.social.instagram],
+                ["Facebook", contact.social.facebook],
+                ["LinkedIn", contact.social.linkedin],
+                ["X", contact.social.x],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <a href={href} className="gw-link" target="_blank" rel="noopener noreferrer">
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="lg:col-span-8">

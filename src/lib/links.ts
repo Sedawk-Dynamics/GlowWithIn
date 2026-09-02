@@ -151,10 +151,14 @@ export const contact = {
     "Hyderabad – 500018",
   ],
   hours: "Monday – Saturday | 9:00 AM – 6:00 PM",
-  /** Social profiles. The live site links these to "#" — replace when the handles are confirmed. */
+  /**
+   * Social profiles — same accounts, and the same order, as the shop footer
+   * (Instagram · Facebook · LinkedIn · X). All open in a new tab.
+   */
   social: {
-    facebook: "#",
-    instagram: "#",
-    pinterest: "#",
+    instagram: "https://www.instagram.com/glowwithinco.in/",
+    facebook: "https://www.facebook.com/profile.php?id=61592163392449",
+    linkedin: "https://www.linkedin.com/company/glowwithin/about/",
+    x: "https://x.com/GlowWithin00",
   },
 } as const;
