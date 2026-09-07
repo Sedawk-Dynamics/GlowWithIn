@@ -90,6 +90,34 @@ Place of Supply + both GSTINs on the PDF invoice. It does **not** calculate
 GST — the CGST/SGST/IGST split comes from WooCommerce → Settings → Tax, which
 has to be configured first (the store currently charges no tax at all).
 
+### Percentage-off sale badge
+
+[`wordpress/glowwithin-sale-badge.php`](wordpress/glowwithin-sale-badge.php)
+turns WooCommerce's "On Sale" flash into the real discount ("31% OFF") on the
+shop loop, the product page and related products. The percentage is rounded
+**down** so a 49.7% saving is never advertised as 50%. Shop-side only — this
+Next.js app does not use it.
+
+### Combo offers
+
+[`wordpress/glowwithin-combos.csv`](wordpress/glowwithin-combos.csv) is a
+WooCommerce product import for the four packs in the client's *Bonus Offer*
+sheet. Each is a **simple** product whose regular price is the sum of the parts
+and whose sale price is the pack price, so the percentage badge falls out of
+the pricing automatically:
+
+| Pack | Contents | Regular | Pack price | Badge |
+| ---- | -------- | ------- | ---------- | ----- |
+| Complete Wellness Pack — First Edition | all four products | ₹3,196 | ₹2,196 | 31% OFF |
+| Glow & Grow Combo | Hair Serum + Face Serum | ₹1,798 | ₹1,161 | 35% OFF |
+| Double Glow Offer | Face Serum × 2 | ₹1,798 | ₹1,161 | 35% OFF |
+| Hair Duo — 2X Care | Hair Serum × 2 | ₹1,798 | ₹1,161 | 35% OFF |
+
+They import as **drafts** — add pack photography, then publish. Simple products
+do not decrement the component products' stock; if that matters, move them to a
+bundle plugin (WPC Product Bundles is the free option). The packs live on the
+shop only; they are not listed on the apex site.
+
 ## Still to do in wp-admin (cannot be done through the MCP connector)
 
 1. ~~Product slugs~~ — renamed on 2026-08-21 (`nourishing-hair-serum`,
