@@ -82,6 +82,14 @@ COD option and refreshes the totals when the payment method changes. Upload it
 to `wp-content/mu-plugins/` on the shop — **not** the theme functions.php (the
 site runs the parent BeTheme, so a theme update would erase it).
 
+### GST details on invoices
+
+[`wordpress/glowwithin-gst-invoice.php`](wordpress/glowwithin-gst-invoice.php)
+adds an optional GSTIN field at checkout, an HSN code per product, and prints
+Place of Supply + both GSTINs on the PDF invoice. It does **not** calculate
+GST — the CGST/SGST/IGST split comes from WooCommerce → Settings → Tax, which
+has to be configured first (the store currently charges no tax at all).
+
 ## Still to do in wp-admin (cannot be done through the MCP connector)
 
 1. ~~Product slugs~~ — renamed on 2026-08-21 (`nourishing-hair-serum`,
