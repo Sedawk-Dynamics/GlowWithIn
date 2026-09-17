@@ -96,9 +96,21 @@ export const categoryNav: NavItem[] = [
   { label: "Wellness Essentials", href: shopRoutes.category("wellness-essentials") },
 ];
 
+/**
+ * Header SHOP dropdown — mirrors the shop's Main Menu (wp-admin → Appearance →
+ * Menus) item for item. Kept separate from categoryNav, which also drives the
+ * homepage tiles and the footer Categories column.
+ */
+export const shopMenuNav: NavItem[] = [
+  { label: "Face Care", href: shopRoutes.category("face-care") },
+  { label: "Intimate Care", href: shopRoutes.category("intimate-care") },
+  { label: "Wellness Essentials", href: shopRoutes.category("wellness-essentials") },
+  { label: "Combo Offers", href: shopRoutes.category("combo-offers") },
+];
+
 export const primaryNav: NavItem[] = [
   { label: "HOME", href: routes.home },
-  { label: "SHOP", href: shopRoutes.catalogue, children: categoryNav },
+  { label: "SHOP", href: shopRoutes.catalogue, children: shopMenuNav },
   { label: "OUR PRODUCTS", href: routes.products },
   { label: "ABOUT", href: routes.about },
   { label: "SERVICES", href: routes.services },
