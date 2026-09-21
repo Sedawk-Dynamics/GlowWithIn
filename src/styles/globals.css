@@ -247,10 +247,14 @@
   }
   html.gw-offer-open { overflow: hidden; }
 
+  /* Flex column: the text below keeps its natural height and the image shrinks
+     into whatever is left, so the card always fits the screen with no
+     scrollbar, however the fonts render. */
   .gw-offer__card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     max-height: calc(92dvh - 50px);   /* 40px button + 10px gap */
-    overflow: auto;
+    overflow: hidden;
     background: #fff;
     box-shadow: 0 24px 60px rgb(52 37 47 / 0.28);
     color: inherit;
@@ -261,16 +265,17 @@
   /* The art has its own headline baked in, so it is shown whole, never cropped. */
   .gw-offer__media {
     position: relative;
-    display: block;
+    flex: 0 1 auto;            /* natural 900:755 height, shrinks when space is short */
     aspect-ratio: 900 / 755;
-    /* whatever height is left after the X (50px) and the text (~245px), so the
-       card fits a 1366x768 laptop without a scrollbar; never below 140px */
-    max-height: max(140px, calc(92dvh - 295px));
-    margin: 0 auto;
-    background: var(--color-shell);
+    min-height: 120px;         /* explicit, or a flex item refuses to shrink */
+    background: #fff;
   }
   .gw-offer__media img { object-fit: contain; }
-  .gw-offer__body { display: block; padding: 22px 24px 26px; text-align: center; }
+  .gw-offer__body { flex: none; padding: 22px 24px 26px; text-align: center; }
+  /* Landscape phones: no room for the art as well, so show the offer text only. */
+  @media (max-height: 520px) {
+    .gw-offer__media { display: none; }
+  }
   .gw-offer__eyebrow {
     margin: 0 0 6px;
     font-family: var(--font-sans);
