@@ -71,7 +71,7 @@ export default async function HomePage() {
           <div className="gw-prose lg:col-span-7 lg:pl-8">
             <p className="text-[16px] leading-7 text-pink-50">{tm(brandStory.paragraphs[3])}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Link href={routes.about} className="gw-btn">
+              <Link href={routes.about} className="gw-btn text-white">
                 About us
               </Link>
               <Link href={routes.founder} className="gw-btn gw-btn--outline">
