@@ -36,6 +36,12 @@ export interface WooPrices {
   currency_suffix: string;
 }
 
+export interface WooCategoryRef {
+  id: number;
+  name: string;
+  slug: string;
+}
+
 export interface WooProduct {
   id: number;
   name: string;
@@ -48,6 +54,7 @@ export interface WooProduct {
   is_purchasable: boolean;
   average_rating: string;
   review_count: number;
+  categories?: WooCategoryRef[];
 }
 
 async function storeFetch<T>(path: string, tags: string[] = []): Promise<T> {
@@ -90,4 +97,28 @@ export function formatPrice(prices: WooPrices, value?: string): string {
   // fall back to the bare symbol only when both are empty.
   const hasAffix = Boolean(prices.currency_prefix || prices.currency_suffix);
   return hasAffix ? `${prices.currency_prefix}${formatted}${prices.currency_suffix}` : `${prices.currency_symbol}${formatted}`;
+}
+
+/**
+ * Headline numbers for one shop category: how many purchasable products it
+ * holds, the lowest price, and the deepest saving. The saving is rounded down
+ * so it never promises more than the cart gives. Returns null when the
+ * category is empty or the shop was unreachable.
+ */
+export function summariseCategory(products: Iterable<WooProduct>, slug: string) {
+  const items = [...products].filter((p) => p.is_purchasable && p.categories?.some((c) => c.slug === slug));
+  if (!items.length) return null;
+
+  let maxPercent = 0;
+  let cheapest = items[0];
+  for (const p of items) {
+    const regular = Number(p.prices.regular_price);
+    const current = Number(p.prices.price);
+    if (regular > 0 && current > 0 && current < regular) {
+      maxPercent = Math.max(maxPercent, Math.floor(((regular - current) / regular) * 100));
+    }
+    if (current < Number(cheapest.prices.price)) cheapest = p;
+  }
+
+  return { count: items.length, maxPercent, fromPrice: formatPrice(cheapest.prices) };
 }

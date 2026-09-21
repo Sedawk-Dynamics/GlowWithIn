@@ -222,6 +222,108 @@
     object-position: center;
   }
 
+  /* ---------- home page combo-offer pop-up (native <dialog>) ---------- */
+  /* The dialog is a transparent wrapper: the close button sits above the card,
+     on the backdrop, so it never covers the offer art. */
+  .gw-offer {
+    width: min(92vw, 460px);
+    max-width: none;
+    max-height: none;
+    margin: auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-ink);
+    overflow: visible;
+  }
+  .gw-offer::backdrop { background: rgb(52 37 47 / 0.55); }
+  .gw-offer[open] { animation: gw-offer-in 0.28s ease-out; }
+  @keyframes gw-offer-in {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gw-offer[open] { animation: none; }
+  }
+  html.gw-offer-open { overflow: hidden; }
+
+  .gw-offer__card {
+    display: block;
+    max-height: calc(92dvh - 50px);   /* 40px button + 10px gap */
+    overflow: auto;
+    background: #fff;
+    box-shadow: 0 24px 60px rgb(52 37 47 / 0.28);
+    color: inherit;
+    text-decoration: none;
+  }
+  .gw-offer__card:hover, .gw-offer__card:focus { color: inherit; text-decoration: none; }
+  .gw-offer__card:focus-visible { outline: 2px solid var(--color-wine); outline-offset: -2px; }
+  /* The art has its own headline baked in, so it is shown whole, never cropped. */
+  .gw-offer__media {
+    position: relative;
+    display: block;
+    aspect-ratio: 900 / 755;
+    /* whatever height is left after the X (50px) and the text (~245px), so the
+       card fits a 1366x768 laptop without a scrollbar; never below 140px */
+    max-height: max(140px, calc(92dvh - 295px));
+    margin: 0 auto;
+    background: var(--color-shell);
+  }
+  .gw-offer__media img { object-fit: contain; }
+  .gw-offer__body { display: block; padding: 22px 24px 26px; text-align: center; }
+  .gw-offer__eyebrow {
+    margin: 0 0 6px;
+    font-family: var(--font-sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-mocha);
+  }
+  .gw-offer__title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(30px, 8vw, 38px);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--color-ink);
+  }
+  .gw-offer__text {
+    margin: 8px auto 20px;
+    max-width: 34ch;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.55;
+    color: rgb(52 37 47 / 0.8);
+  }
+  .gw-offer__card:hover .gw-offer__cta,
+  .gw-offer__card:focus-visible .gw-offer__cta {
+    background: var(--color-wine);
+    border-color: var(--color-wine);
+    color: #fff;
+  }
+  /* Every box property is set explicitly: BeTheme's global button rule would
+     otherwise pad this to 80px wide (the same bug that broke the hero arrows). */
+  .gw-offer__close {
+    position: static;
+    display: grid;
+    place-items: center;
+    width: 40px; height: 40px;
+    min-width: 0; min-height: 0;
+    margin: 0 0 10px auto;   /* right-aligned above the card */
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--color-ink);
+    box-shadow: 0 2px 10px rgb(0 0 0 / 0.2);
+    line-height: 1;
+    cursor: pointer;
+  }
+  .gw-offer__close:hover { color: var(--color-wine); }
+  .gw-offer__close:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+  .gw-offer__close svg { display: block; width: 18px; height: 18px; }
+
   /* ---------- hero slider: full banner, never cropped ---------- */
   .gw-hero { position: relative; background: var(--color-cream); }
   .gw-hero__track {

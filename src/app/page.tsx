@@ -7,7 +7,8 @@ import { SectionHeading, Signature } from "@/components/ui/Section";
 import { Icon, type IconName } from "@/components/ui/Icons";
 import { products, productsIntro } from "@/data/products";
 import { brandStory, collectionLine, founderNote, whyChooseUs } from "@/data/brand";
-import { getLiveProductMap } from "@/lib/woo";
+import { getLiveProductMap, summariseCategory } from "@/lib/woo";
+import { ComboOfferPopup } from "@/components/home/ComboOfferPopup";
 import { routes, shopRoutes, categoryNav } from "@/lib/links";
 
 export const revalidate = 3600;
@@ -19,11 +20,24 @@ const CATEGORY_IMAGES: Record<string, string> = {
   "wellness-essentials": "https://shop.glowwithin.co.in/wp-content/uploads/2026/02/homemade-treatment-ingredients-assortment-800x800.jpg",
 };
 
+const COUNT_WORDS = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+
 export default async function HomePage() {
   const live = await getLiveProductMap();
 
+  // Pop-up copy comes from the live combo prices, so it can't drift from the
+  // shop. If the shop is unreachable it falls back to wording with no numbers.
+  const combos = summariseCategory(live.values(), "combo-offers");
+  const packs = combos ? `${COUNT_WORDS[combos.count] ?? combos.count} GlowWithin™ ${combos.count === 1 ? "pack" : "packs"}` : "GlowWithin™ packs";
+  const offerHeadline = combos?.maxPercent ? `Save up to ${combos.maxPercent}%` : "Combo offers are here";
+  const offerText = combos
+    ? `${packs} for hair, face and intimate care, from ${combos.fromPrice}.`
+    : `${packs} for hair, face and intimate care, priced together for less.`;
+
   return (
     <>
+      <ComboOfferPopup href={shopRoutes.category("combo-offers")} headline={offerHeadline} text={offerText} />
+
       {/* 1 · Hero — the five banners, shown whole */}
       <HeroSlides />
 

@@ -60,6 +60,19 @@ do not tighten them.
 * **Pack shots** — `.gw-packshot` is a square box with `object-fit: contain`;
   products are never cropped.
 
+## Combo offer pop-up (home page only)
+
+[`ComboOfferPopup`](src/components/home/ComboOfferPopup.tsx) opens 2.5 s after
+the home page loads, once per browser session, and the whole card links to the
+shop's Combo Offers category. Its headline and "from" price come from the live
+combo prices (`summariseCategory()` in [`src/lib/woo.ts`](src/lib/woo.ts)), so
+they update with the hourly revalidation. The art is
+`public/images/offers/combo-first-edition.webp`.
+
+To see it again after closing it, add `?offer` to the URL
+(`https://www.glowwithin.co.in/?offer`) or use a private window. To retire it,
+remove the `<ComboOfferPopup />` line from [`src/app/page.tsx`](src/app/page.tsx).
+
 ## Deploy
 
 Vercel, `main` → production. Set the env vars from `.env.example`
