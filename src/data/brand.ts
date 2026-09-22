@@ -30,7 +30,7 @@ export const founderNote = {
     "And when she feels good within, that feeling has a way of shining through - in her smile, her confidence, her presence and the way she embraces the world.",
     "That is the GlowWithin™ belief.",
   ],
-  pullQuote: "Her Glow Evolves. Her Care Evolves With Her.",
+  pullQuote: "Her Glow Evolves. Our Care Evolves With Her.",
   closing: [
     "We aspire to walk alongside every woman through every chapter of her journey, with products she can trust and care that keeps her at the centre.",
     "Because every woman deserves to discover her glow, nurture it, celebrate it - and let it shine.",
@@ -63,7 +63,7 @@ export const collectionLine = {
   ],
   closing:
     "Together, they represent the first expression of the GlowWithin™ Women Wellness Collection - designed to accompany her through different moments, needs and stages of her journey.",
-  evolves: "Her Glow Evolves. Her Care Evolves With Her.",
+  evolves: "Her Glow Evolves. Our Care Evolves With Her.",
   journey: [
     "She has the glow",
     "GlowWithin helps it shine",
@@ -173,7 +173,7 @@ export const services = {
       title: "Women's Wellness Ecosystem",
       tagline: "Care That Evolves With Her",
       text: "We envision a growing ecosystem that supports women across different stages and dimensions of wellness - from hair and skin to intimate care, nutrition and beyond.",
-      closing: "Because her needs evolve. Her Glow Evolves. Her Care Evolves With Her.",
+      closing: "Because her needs evolve. Her Glow Evolves. Our Care Evolves With Her.",
     },
   ],
   outro: [
