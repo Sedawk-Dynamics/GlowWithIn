@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const p = getProduct(slug);
   if (!p) return {};
   return {
-    title: `${p.name} — ${p.promise}`,
+    title: p.shortName,
     description: `${p.hook} ${p.story[0]}`,
     alternates: { canonical: routes.product(p.slug) },
     openGraph: { images: [{ url: p.banner, width: 2560, height: 1440, alt: p.name }] },

@@ -14,11 +14,14 @@ import "@/styles/wp/footer-tmpl.css";
 export const metadata: Metadata = {
   metadataBase: new URL(APEX_ORIGIN),
   title: {
-    default: "GlowWithin™ — For Her, Forever | Women's Wellness: Hair, Skin & Intimate Care",
+    default: "GlowWithin™ | Women's Skin, Hair & Intimate Care India",
     template: "%s | GlowWithin™",
   },
   description:
-    "GlowWithin™ brings together thoughtfully selected ingredients, modern wellness science and everyday care to help her feel fresh, confident and beautifully herself — across hair, skin and intimate wellness. Your Glow Is Within. Let It Shine Through.",
+    "Explore GlowWithin women's skincare, hair serum, gel face cream and intimate wash in India. Discover ingredients and shop your everyday care essentials.",
+  verification: {
+    google: "N4-S3P2Jo4A8VWko7vVEGJxMlqCfsgbfhOp7Wfa0VRY",
+  },
   keywords: [
     "GlowWithin", "women's wellness", "hair serum", "face serum", "gel face cream", "intimate wash",
     "Sri Varamaha Wellness", "women first skincare India",
